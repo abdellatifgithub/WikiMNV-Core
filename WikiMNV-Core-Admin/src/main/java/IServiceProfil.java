@@ -1,11 +1,13 @@
 package fr.cap.wikimnv.service;
 
-import fr.cap.wikimnv.exception.MNVException;
-import fr.cap.wikimnv.global.domain.pojo.Profil;
-import fr.cap.wikimnv.global.service.IServiceCRUDGeneric;
+import javax.jws.WebService;
+
+import fr.cap.wikimnv.core.commons.*;
+import fr.cap.wikimnv.core.commons.exception.MNVException;
 
 
-public interface IServiceProfil extends IServiceCRUDGeneric {
+@WebService(name="profilService", serviceName="profilService")
+public interface IServiceProfil extends ICRUDGeneric {
 
 	 //grace à l'heritage de l'ICRUD 
 	// possibilité de lister, creer/update/effacer des profils
