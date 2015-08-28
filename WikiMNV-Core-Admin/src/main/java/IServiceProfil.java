@@ -1,4 +1,4 @@
-package fr.cap.wikimnv.service;
+
 
 import javax.jws.WebService;
 
