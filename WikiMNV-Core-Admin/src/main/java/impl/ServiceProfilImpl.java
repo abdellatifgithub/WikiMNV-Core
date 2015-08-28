@@ -10,11 +10,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import fr.cap.wikimnv.IServiceProfil;
-import fr.cap.wikimnv.exception.MNVException;
-import fr.cap.wikimnv.global.domain.pojo.Profil;
-import fr.cap.wikimnv.global.domain.pojo.Query;
-import fr.cap.wikimnv.global.service.IServiceCRUD;
+import fr.cap.wikimnv.core.commons.exception.MNVException;
+import fr.cap.wikimnv.service.IServiceProfil;
+
+
 
 public class ServiceProfilImpl implements IServiceProfil {
 	
