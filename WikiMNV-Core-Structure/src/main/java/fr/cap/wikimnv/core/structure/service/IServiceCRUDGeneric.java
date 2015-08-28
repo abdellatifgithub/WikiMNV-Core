@@ -11,3 +11,7 @@ public interface IServiceCRUDGeneric  {
 	Object sauver(Object obj) throws MNVException ;
 	
 }
+
+
+
+
