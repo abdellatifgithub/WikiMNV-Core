@@ -2,11 +2,12 @@ package fr.cap.wikimnv.service;
 
 import javax.jws.WebService;
 
-import fr.cap.wikimnv.exception.MNVException;
-import fr.cap.wikimnv.global.service.IServiceCRUDGeneric;
+import fr.cap.wikimnv.core.commons.ICRUDGeneric;
+import fr.cap.wikimnv.core.commons.exception.MNVException;
+
 
 @WebService(name="profilUser", serviceName="profilUser")
-public interface IServiceUser extends IServiceCRUDGeneric {
+public interface IServiceUser extends ICRUDGeneric {
 		
 	void bannir(Object id) throws MNVException;
 		
