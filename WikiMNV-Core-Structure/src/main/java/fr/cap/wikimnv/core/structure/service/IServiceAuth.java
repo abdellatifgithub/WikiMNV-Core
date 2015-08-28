@@ -1,4 +1,4 @@
-package fr.cap.wikimnv.global.service;
+package fr.cap.wikimnv.core.structure.service;
 
 import fr.cap.wikimnv.exception.MNVException;
 import fr.cap.wikimnv.global.domain.pojo.Profil;

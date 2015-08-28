@@ -1,8 +1,7 @@
-package fr.cap.wikimnv.global.service;
+package fr.cap.wikimnv.core.structure.service;
 
 import java.util.Set;
-
-import fr.cap.wikimnv.exception.MNVException;
+import fr.cap.wikimnv.core.commons.exception.MNVException;
 
 public interface IServiceCRUDGeneric  {
 	
@@ -12,3 +11,7 @@ public interface IServiceCRUDGeneric  {
 	Object sauver(Object obj) throws MNVException ;
 	
 }
+
+
+
+

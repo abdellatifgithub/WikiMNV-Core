@@ -1,13 +1,13 @@
-package fr.cap.wikimnv.global.service.impl;
+package fr.cap.wikimnv.core.structure.service.impl;
 
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import fr.cap.wikimnv.core.structure.service.IServiceCRUD;
 import fr.cap.wikimnv.exception.MNVException;
 import fr.cap.wikimnv.global.domain.dao.impl.DaoMongoDB;
 import fr.cap.wikimnv.global.domain.pojo.Query;
-import fr.cap.wikimnv.global.service.IServiceCRUD;
 
 public class ServiceCrudImpl implements IServiceCRUD {
 	

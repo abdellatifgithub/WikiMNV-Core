@@ -1,11 +1,12 @@
-package fr.cap.wikimnv.global.service;
+package fr.cap.wikimnv.core.structure.service;
 
 import java.util.Map;
 
 import javax.jws.WebService;
+import javax.management.Query;
 
-import fr.cap.wikimnv.exception.MNVException;
-import fr.cap.wikimnv.global.domain.pojo.Query;
+import fr.cap.wikimnv.core.commons.exception.MNVException;
+
 
 @WebService(name="crudService", serviceName="crudService")
 public interface IServiceCRUD extends IServiceCRUDGeneric{
