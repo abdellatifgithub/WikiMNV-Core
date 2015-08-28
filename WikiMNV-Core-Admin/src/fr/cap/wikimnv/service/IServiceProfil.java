@@ -1,10 +1,12 @@
 package fr.cap.wikimnv.service;
 
+import javax.jws.WebService;
+
 import fr.cap.wikimnv.exception.MNVException;
 import fr.cap.wikimnv.global.domain.pojo.Profil;
 import fr.cap.wikimnv.global.service.IServiceCRUDGeneric;
 
-
+@WebService(name="profilService", serviceName="profilService")
 public interface IServiceProfil extends IServiceCRUDGeneric {
 
 	 //grace à l'heritage de l'ICRUD 
