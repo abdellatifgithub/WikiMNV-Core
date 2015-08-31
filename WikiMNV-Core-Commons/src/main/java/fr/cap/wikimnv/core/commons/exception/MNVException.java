@@ -20,4 +20,5 @@ public class MNVException extends Exception {
 		return codeErreur;
 	}
 
+	
 }
