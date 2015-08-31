@@ -1,12 +1,10 @@
-package fr.cap.wikimnv.contribution.service.impl;
+package fr.cap.wikimnv.core.structure.service.impl;
 
 import java.util.Set;
 
-import fr.cap.wikimnv.contribution.service.IServiceTemplate;
-import fr.cap.wikimnv.exception.MNVException;
-import fr.cap.wikimnv.global.domain.pojo.Template;
-import fr.cap.wikimnv.global.service.ICRUD;
-
+import fr.cap.wikimnv.core.commons.exception.MNVException;
+import fr.cap.wikimnv.core.pojo.Template;
+import fr.cap.wikimnv.core.structure.service.IServiceTemplate;
 
 public class ServiceTemplateImpl implements IServiceTemplate {
 	

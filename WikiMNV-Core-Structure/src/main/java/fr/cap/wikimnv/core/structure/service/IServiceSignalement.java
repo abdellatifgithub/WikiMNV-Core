@@ -1,12 +1,11 @@
-package fr.cap.wikimnv.moderation.service;
+package fr.cap.wikimnv.core.structure.service;
 
-import javax.jws.WebService;
 
-import fr.cap.wikimnv.global.domain.pojo.Contenu;
-import fr.cap.wikimnv.global.domain.pojo.User;
-import fr.cap.wikimnv.exception.MNVException;
-import fr.cap.wikimnv.global.service.ICRUDGeneric;
-import fr.cap.wikimnv.moderation.pojo.Signalement;
+
+import fr.cap.wikimnv.core.commons.ICRUDGeneric;
+import fr.cap.wikimnv.core.commons.exception.MNVException;
+import fr.cap.wikimnv.core.pojo.Contenu;
+import fr.cap.wikimnv.core.pojo.User;
 
 @WebService(name="signalementService", serviceName="signalementService")
 public interface IServiceSignalement extends ICRUDGeneric

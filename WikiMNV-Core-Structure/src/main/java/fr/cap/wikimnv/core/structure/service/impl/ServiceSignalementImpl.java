@@ -1,16 +1,13 @@
-package fr.cap.wikimnv.moderation.service.impl;
+package fr.cap.wikimnv.core.structure.service.impl;
 
 
 
 import java.util.Set;
 
-import fr.cap.wikimnv.exception.MNVException;
-import fr.cap.wikimnv.global.domain.pojo.Contenu;
-import fr.cap.wikimnv.global.domain.pojo.User;
-import fr.cap.wikimnv.global.service.ICRUD;
-import fr.cap.wikimnv.moderation.pojo.EtatSignalement;
-import fr.cap.wikimnv.moderation.pojo.Signalement;
-import fr.cap.wikimnv.moderation.service.IServiceSignalement;
+import fr.cap.wikimnv.core.commons.exception.MNVException;
+import fr.cap.wikimnv.core.pojo.Contenu;
+import fr.cap.wikimnv.core.pojo.User;
+import fr.cap.wikimnv.core.structure.service.IServiceSignalement;
 
 public class ServiceSignalementImpl implements IServiceSignalement {
 

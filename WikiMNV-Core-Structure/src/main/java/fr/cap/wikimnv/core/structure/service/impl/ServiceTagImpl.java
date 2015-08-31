@@ -1,17 +1,14 @@
-package fr.cap.wikimnv.contribution.service.impl;
+package fr.cap.wikimnv.core.structure.service.impl;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import fr.cap.wikimnv.core.commons.exception.MNVException;
+import fr.cap.wikimnv.core.pojo.Query;
+import fr.cap.wikimnv.core.pojo.Tag;
+import fr.cap.wikimnv.core.structure.service.IServiceTag;
 
-import fr.cap.wikimnv.contribution.service.IServiceTag;
-import fr.cap.wikimnv.exception.MNVException;
-import fr.cap.wikimnv.global.domain.pojo.Query;
-import fr.cap.wikimnv.global.domain.pojo.Tag;
-import fr.cap.wikimnv.global.service.ICRUD;
 
 @Service("sTag")
 public class ServiceTagImpl implements IServiceTag {
