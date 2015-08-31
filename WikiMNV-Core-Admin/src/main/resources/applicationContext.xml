@@ -21,7 +21,14 @@
 	<!--  web service admin serviceUser -->
 	<jaxws:server serviceClass="fr.cap.wikimnv.service.IServiceUser" address="/serviceUser" serviceBean="#ServiceUser"> </jaxws:server>
 	
+	<!-- injection du logger cli -->
 	<bean id="ServiceLog" class="fr.cap.wikimnv.logger.LoggerCLI" />
+	
+	<!-- injection des implementations serviceProfil et serviceUser -->
 	<bean id="ServiceProfil" class="fr.cap.wikimnv.service.impl.ServiceProfilImpl" />
 	<bean id="ServiceUser" class="fr.cap.wikimnv.service.impl.ServiceUserImpl" />
+
+	<!-- injection de Icrudimpl -->
+
+
 </beans>
