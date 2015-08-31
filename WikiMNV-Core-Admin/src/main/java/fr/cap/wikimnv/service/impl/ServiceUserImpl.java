@@ -6,7 +6,7 @@ import fr.cap.wikimnv.global.service.impl.ServiceCrudImpl;
 
 
 public class ServiceUserImpl extends ServiceCrudImpl implements IServiceUser {
-
+	//besoin de persist
 	@Override
 	public void bannir(Object id) {
 		User u = (User)id;

@@ -5,22 +5,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import fr.cap.wikimnv.core.commons.exception.MNVException;
+
 import fr.cap.wikimnv.service.IServiceProfil;
 
 
 
 public class ServiceProfilImpl implements IServiceProfil {
 	
-	//TODO faire un getBean pour icrud	
+	//Besoin du service persistence
 	IServiceCRUD icrud;
-		
-	//Implem d'un logger
 	
 	
 	public IServiceCRUD getIcrud() { return icrud; }
@@ -28,9 +25,7 @@ public class ServiceProfilImpl implements IServiceProfil {
 
 	//constructeur
 	public ServiceProfilImpl() {
-		super();
-
-		
+		super();		
 	}
 
 	@Override

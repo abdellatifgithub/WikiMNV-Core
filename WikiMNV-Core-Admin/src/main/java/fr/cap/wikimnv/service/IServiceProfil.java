@@ -2,10 +2,14 @@ package fr.cap.wikimnv.service;
 
 import javax.jws.WebService;
 
-import fr.cap.wikimnv.core.commons.*;
+import fr.cap.wikimnv.core.commons.ICRUDGeneric;
 import fr.cap.wikimnv.core.commons.exception.MNVException;
+import fr.cap.wikimnv.core.pojo.Profil;
 
 
+
+
+@SuppressWarnings("restriction")
 @WebService(name="profilService", serviceName="profilService")
 public interface IServiceProfil extends ICRUDGeneric {
 
