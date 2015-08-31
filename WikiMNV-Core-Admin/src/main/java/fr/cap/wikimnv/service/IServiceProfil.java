@@ -9,7 +9,6 @@ import fr.cap.wikimnv.core.pojo.Profil;
 
 
 
-@SuppressWarnings("restriction")
 @WebService(name="profilService", serviceName="profilService")
 public interface IServiceProfil extends ICRUDGeneric {
 

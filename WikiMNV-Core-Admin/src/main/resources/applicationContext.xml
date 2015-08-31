@@ -21,5 +21,7 @@
 	<!--  web service admin serviceUser -->
 	<jaxws:server serviceClass="fr.cap.wikimnv.service.IServiceUser" address="/serviceUser" serviceBean="#ServiceUser"> </jaxws:server>
 	
-	<bean id="ServiceLog" class="bin.fr.cap.wikimnv.logger.LoggerCLI.class" />
+	<bean id="ServiceLog" class="fr.cap.wikimnv.logger.LoggerCLI" />
+	<bean id="ServiceProfil" class="fr.cap.wikimnv.service.impl.ServiceProfilImpl" />
+	<bean id="ServiceUser" class="fr.cap.wikimnv.service.impl.ServiceUserImpl" />
 </beans>

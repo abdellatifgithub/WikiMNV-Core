@@ -7,6 +7,7 @@ import java.util.Set;
 import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.pojo.Profil;
 import fr.cap.wikimnv.core.pojo.Query;
+import fr.cap.wikimnv.core.pojo.TypeStructure;
 import fr.cap.wikimnv.service.IServiceProfil;
 
 public class ServiceProfilImpl implements IServiceProfil {
@@ -49,24 +50,25 @@ public class ServiceProfilImpl implements IServiceProfil {
 		icrud.sauver(profil);
 	}
 
-	public Set<?> lister(Class cls) throws MNVException {
+	public Object lire(Object arg0, TypeStructure arg1) throws MNVException {
 		// TODO Auto-generated method stub
-		return icrud.lister(cls);
+		return null;
 	}
 
-	public Object lire(Object obj, Class cls) throws MNVException {
+	public Set<?> lister(TypeStructure arg0) throws MNVException {
 		// TODO Auto-generated method stub
-		return icrud.lire(obj, cls);
+		return null;
 	}
 
-	public Object supprimer(Object obj) throws MNVException {
+	public Object sauver(Object arg0) throws MNVException {
 		// TODO Auto-generated method stub
-		return icrud.supprimer(obj);
+		return null;
 	}
 
-	public Object sauver(Object obj) throws MNVException {
+	public Object supprimer(Object arg0) throws MNVException {
 		// TODO Auto-generated method stub
-		return icrud.sauver(obj);
+		return null;
 	}
+
 
 }
