@@ -14,3 +14,5 @@ public interface IServiceSignalement extends ICRUDGeneric
 	Signalement rejeter(Object id) throws MNVException;
 	Signalement traiter(Object id) throws MNVException;
 }
+
+
