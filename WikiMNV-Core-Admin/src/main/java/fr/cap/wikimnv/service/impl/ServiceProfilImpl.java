@@ -33,8 +33,7 @@ public class ServiceProfilImpl implements IServiceProfil {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("pId", p.getId());
 
-		return (int) icrud
-				.faireRequete(Query.PROFIL_COUNTARTICLESECRIT, params);
+		return (int) icrud.faireRequete(Query.PROFIL_COUNTARTICLESECRIT, params);
 	}
 
 	public int ranking(Profil p) throws MNVException {
@@ -51,7 +50,7 @@ public class ServiceProfilImpl implements IServiceProfil {
 	}
 
 	public Object lire(Object arg0, TypeStructure arg1) throws MNVException {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
