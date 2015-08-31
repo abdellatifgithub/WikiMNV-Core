@@ -1,11 +1,12 @@
-package fr.cap.wikimnv.core.structure.service.impl;
+package fr.cap.wikimnv.global.service.impl;
 
 import java.util.Set;
 
-import fr.cap.wikimnv.core.commons.exception.MNVException;
-import fr.cap.wikimnv.core.structure.service.IServiceCRUD;
-import fr.cap.wikimnv.core.structure.service.IServiceCommentaire;
-
+import fr.cap.wikimnv.exception.MNVException;
+import fr.cap.wikimnv.global.domain.pojo.Commentaire;
+import fr.cap.wikimnv.global.domain.pojo.EtatPublication;
+import fr.cap.wikimnv.global.service.IServiceCRUD;
+import fr.cap.wikimnv.global.service.IServiceCommentaire;
 
 
 
