@@ -1,13 +1,12 @@
 package fr.cap.wikimnv.service.impl;
 
-import fr.cap.wikimnv.IServiceUser;
-import fr.cap.wikimnv.global.domain.pojo.User;
-import fr.cap.wikimnv.global.service.impl.ServiceCrudImpl;
+import fr.cap.wikimnv.core.pojo.User;
+
+
 
 
 public class ServiceUserImpl extends ServiceCrudImpl implements IServiceUser {
 	//besoin de persist
-	@Override
 	public void bannir(Object id) {
 		User u = (User)id;
 		u.setBannit(true);		
