@@ -1,5 +1,6 @@
 package fr.cap.wikimnv.core.commons.exception;
 
+@SuppressWarnings("serial")
 public class MNVException extends Exception {
 		
 	
@@ -14,7 +15,6 @@ public class MNVException extends Exception {
 		this.codeErreur = codeErreur;
 	}
 
-	
 	
 	public int getCodeErreur() {
 		return codeErreur;
