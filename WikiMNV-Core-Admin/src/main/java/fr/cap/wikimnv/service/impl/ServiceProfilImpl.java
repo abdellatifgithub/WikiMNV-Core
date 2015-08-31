@@ -15,13 +15,9 @@ public class ServiceProfilImpl implements IServiceProfil {
 	// Besoin du service persistence
 	IServiceCRUD icrud;
 
-	public IServiceCRUD getIcrud() {
-		return icrud;
-	}
-
-	public void setIcrud(IServiceCRUD icrud) {
-		this.icrud = icrud;
-	}
+	//getters et setter pour IOC Spring
+	public IServiceCRUD getIcrud() { return icrud; }
+	public void setIcrud(IServiceCRUD icrud) { this.icrud = icrud; }
 
 	// constructeur
 	public ServiceProfilImpl() {
@@ -32,14 +28,12 @@ public class ServiceProfilImpl implements IServiceProfil {
 
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("pId", p.getId());
-
 		return (int) icrud.faireRequete(Query.PROFIL_COUNTARTICLESECRIT, params);
 	}
 
 	public int ranking(Profil p) throws MNVException {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("pId", p.getId());
-
 		return (int) icrud.faireRequete(Query.PROFIL_RANKING, params);
 	}
 
@@ -49,25 +43,20 @@ public class ServiceProfilImpl implements IServiceProfil {
 		icrud.sauver(profil);
 	}
 
-	public Object lire(Object arg0, TypeStructure arg1) throws MNVException {
-		
-		return null;
+	public Object lire(Object obj, TypeStructure type) throws MNVException {
+		return icrud.lire(obj, type);
 	}
 
-	public Set<?> lister(TypeStructure arg0) throws MNVException {
-		// TODO Auto-generated method stub
-		return null;
+	public Set<?> lister(TypeStructure type) throws MNVException {
+		return icrud.lister(type);
 	}
 
-	public Object sauver(Object arg0) throws MNVException {
-		// TODO Auto-generated method stub
-		return null;
+	public Object sauver(Object obj) throws MNVException {
+		return icrud.sauver(obj);
 	}
 
-	public Object supprimer(Object arg0) throws MNVException {
-		// TODO Auto-generated method stub
-		return null;
+	public Object supprimer(Object obj) throws MNVException {
+		return icrud.supprimer(obj);
 	}
-
 
 }
