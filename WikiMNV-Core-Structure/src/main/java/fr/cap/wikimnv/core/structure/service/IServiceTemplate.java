@@ -1,8 +1,9 @@
 package fr.cap.wikimnv.core.structure.service;
 
-import fr.cap.wikimnv.exception.MNVException;
-import fr.cap.wikimnv.global.domain.pojo.Template;
-import fr.cap.wikimnv.global.service.ICRUDGeneric;
+import fr.cap.wikimnv.core.commons.ICRUDGeneric;
+import fr.cap.wikimnv.core.commons.exception.MNVException;
+import fr.cap.wikimnv.core.pojo.Template;
+
 
 
 public interface IServiceTemplate extends ICRUDGeneric {

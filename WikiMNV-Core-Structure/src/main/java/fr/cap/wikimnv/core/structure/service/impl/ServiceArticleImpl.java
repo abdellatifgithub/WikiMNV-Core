@@ -2,11 +2,10 @@ package fr.cap.wikimnv.core.structure.service.impl;
 
 import java.util.Set;
 
-import fr.cap.wikimnv.contribution.service.IServiceArticle;
-import fr.cap.wikimnv.exception.MNVException;
-import fr.cap.wikimnv.global.domain.pojo.Article;
-import fr.cap.wikimnv.global.domain.pojo.EtatPublication;
-import fr.cap.wikimnv.global.service.ICRUD;
+import fr.cap.wikimnv.core.commons.exception.MNVException;
+import fr.cap.wikimnv.core.pojo.Article;
+import fr.cap.wikimnv.core.pojo.EtatPublication;
+import fr.cap.wikimnv.core.structure.service.IServiceArticle;
 
 public class ServiceArticleImpl implements IServiceArticle {
 	ICRUD sCrud;

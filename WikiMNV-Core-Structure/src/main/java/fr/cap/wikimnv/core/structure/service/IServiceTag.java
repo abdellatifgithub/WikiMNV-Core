@@ -1,10 +1,11 @@
 package fr.cap.wikimnv.core.structure.service;
 
+
 import java.util.Set;
 
-import fr.cap.wikimnv.exception.MNVException;
-import fr.cap.wikimnv.global.domain.pojo.Tag;
-import fr.cap.wikimnv.global.service.ICRUDGeneric;
+import fr.cap.wikimnv.core.commons.ICRUDGeneric;
+import fr.cap.wikimnv.core.commons.exception.MNVException;
+import fr.cap.wikimnv.core.pojo.Tag;
 
 
 public interface IServiceTag extends ICRUDGeneric{
