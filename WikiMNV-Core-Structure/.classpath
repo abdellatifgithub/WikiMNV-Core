@@ -29,7 +29,7 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Stagiaire/Desktop/DATA/WikiMNV-core-Commons-2015.08.31.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Stagiaire/Desktop/DATA/wikimnv-LoggerCli_2015-08-27.jar"/>
+	<classpathentry kind="lib" path="D:/Users/mgnemegn/Desktop/wikimnv-LoggerCli_2015-08-28.jar"/>
+	<classpathentry kind="lib" path="D:/Users/mgnemegn/Desktop/WikiMNV-core-Commons-2015.08.31.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

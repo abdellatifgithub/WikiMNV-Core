@@ -1,8 +1,10 @@
 package fr.cap.wikimnv.core.structure.service;
 
-import fr.cap.wikimnv.exception.MNVException;
-import fr.cap.wikimnv.global.domain.pojo.EtatPublication;
-import fr.cap.wikimnv.global.service.ICRUDGeneric;
+import fr.cap.wikimnv.core.commons.ICRUDGeneric;
+import fr.cap.wikimnv.core.commons.exception.MNVException;
+import fr.cap.wikimnv.core.pojo.EtatPublication;
+
+
 
 public interface IServiceArticle extends ICRUDGeneric {
 	/**
