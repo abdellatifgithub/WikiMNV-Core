@@ -1,4 +1,4 @@
-package fr.cap.wikimnv.moderation.service;
+package fr.cap.wikimnv.core.structure.service;
 
 import javax.jws.WebService;
 

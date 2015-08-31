@@ -1,4 +1,4 @@
-package fr.cap.wikimnv.contribution.service;
+package fr.cap.wikimnv.core.structure.service;
 
 import java.util.Set;
 
