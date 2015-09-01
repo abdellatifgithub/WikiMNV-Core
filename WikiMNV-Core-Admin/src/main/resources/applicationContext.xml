@@ -31,7 +31,9 @@
 
 	<!-- injection du logger cli -->
 	<bean id="ServiceLog" class="fr.cap.wikimnv.logger.LoggerCLI" />
-	<!-- AOP pour le logger -->
+	
+	<!-- 
+
 	<aop:config>
 		<aop:aspect id="sLoggerAspect" ref="ServiceLog">
 			
@@ -45,6 +47,6 @@
 			
 		</aop:aspect>
 	</aop:config>
-
+	-->
 
 </beans>
