@@ -32,12 +32,12 @@ public class ServiceTagImpl implements IServiceTag {
 
 	
 	public Set<?> lister(Class cls) throws MNVException {
-		return crud.lister(Tag.class);
+		return crud.lister(TypeStructure.TAG);
 	}
 
 	
-	public Object lire(Object obj, Class cls) throws MNVException {
-		return crud.lire(obj, Tag.class);
+	public Object lire(Object obj, Class cls) throws MNVException, MNVException_Exception {
+		return crud.lire(obj, TypeStructure.TAG);
 	}
 
 	@Override

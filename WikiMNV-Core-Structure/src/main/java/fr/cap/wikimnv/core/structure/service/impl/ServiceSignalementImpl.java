@@ -23,7 +23,7 @@ public class ServiceSignalementImpl implements IServiceSignalement {
 	
 
 	private Signalement changerEtat(EtatSignalement etat, Object key) throws MNVException {
-		Signalement sig = (Signalement) crud.lire(key, Signalement.class);
+		Signalement sig = (Signalement) crud.lire(key, TypeStructure.SIGNALEMENT);
 		sig.setEtat(etat);
 
 		return (Signalement)crud.sauver(sig);		
@@ -42,13 +42,13 @@ public class ServiceSignalementImpl implements IServiceSignalement {
 
 	
 	public Set<?> lister(Class cl) throws MNVException {
-		return crud.lister(cl);
+		return crud.lister(TypeStructure.SIGNALEMENT);
 	}
 
 
 	
 	public Object lire(Object key, Class cl) throws MNVException {
-		return crud.lire(key, cl);
+		return crud.lire(key, TypeStructure.SIGNALEMENT);
 	}
 
 

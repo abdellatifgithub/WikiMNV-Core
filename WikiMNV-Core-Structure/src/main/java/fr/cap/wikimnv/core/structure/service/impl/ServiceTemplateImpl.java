@@ -31,14 +31,14 @@ public class ServiceTemplateImpl implements IServiceTemplate {
 		this.sauver(template);
 	}
 
-	public Object lire(Object obj, Class cls) throws MNVException {
+	public Object lire(Object obj, Class cls) throws MNVException, MNVException_Exception {
 		// TODO Auto-generated method stub
-		return crud.lire(obj, Template.class);
+		return crud.lire(obj, TypeStructure.TEMPLATE);
 	}
 
 	public Set<?> lister(Class cls) throws MNVException {
 		// TODO Auto-generated method stub
-		return crud.lister(Template.class);
+		return crud.lister(TypeStructure.TEMPLATE);
 	}
 
 	public Object sauver(Object obj) throws MNVException {

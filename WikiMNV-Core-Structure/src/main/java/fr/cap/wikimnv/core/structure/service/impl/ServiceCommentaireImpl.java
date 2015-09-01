@@ -1,5 +1,6 @@
 package fr.cap.wikimnv.core.structure.service.impl;
 
+import java.util.List;
 import java.util.Set;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
@@ -25,11 +26,12 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 	 * Permet d'obtenir la liste de tous les commentaires
 	 *@return  Renvoie la liste des comentaires
 	 *@author  Sohail, Messan  
+	 * @throws MNVException_Exception 
 	 */ 
 	
-	public Set<?> lister() throws MNVException {
+	public List<Object> lister() throws MNVException, MNVException_Exception {
 		
-		return  crud.lister(Commentaire.class) ;
+		return  crud.lister(TypeStructure.COMMENTAIRE );
 	}
 	
 	/**
@@ -37,11 +39,12 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 	 * @param Le commentaire à lire
 	 * @return  Renvoie le commentaire demandé en paramètre
 	 * @author Sohail, Messan
+	 * @throws MNVException_Exception 
 	 */ 
 
 	
-	public Object lire(Object commentaire) throws MNVException {
-		return crud.lire(commentaire, Commentaire.class) ;
+	public Object lire(Object commentaire) throws MNVException, MNVException_Exception {
+		return crud.lire(commentaire, TypeStructure.COMMENTAIRE) ;
 	}
 	
 	/**

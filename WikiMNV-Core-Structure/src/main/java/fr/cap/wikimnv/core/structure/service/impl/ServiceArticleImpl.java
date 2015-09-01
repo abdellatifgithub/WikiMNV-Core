@@ -6,9 +6,9 @@ import java.util.Set;
 import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.persistance.CrudService;
 import fr.cap.wikimnv.core.persistance.MNVException_Exception;
-import fr.cap.wikimnv.core.persistance.TypeStructure;
 import fr.cap.wikimnv.core.pojo.Article;
 import fr.cap.wikimnv.core.pojo.EtatPublication;
+import fr.cap.wikimnv.core.pojo.TypeStructure;
 import fr.cap.wikimnv.core.structure.service.IServiceArticle;
 
 public class ServiceArticleImpl implements IServiceArticle {
