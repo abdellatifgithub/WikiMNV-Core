@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.persistance.CrudService;
+import fr.cap.wikimnv.core.persistance.MNVException_Exception;
 import fr.cap.wikimnv.core.pojo.Query;
 import fr.cap.wikimnv.core.pojo.Tag;
+import fr.cap.wikimnv.core.pojo.TypeStructure;
 import fr.cap.wikimnv.core.structure.service.IServiceTag;
 
 
@@ -28,24 +30,36 @@ public class ServiceTagImpl implements IServiceTag {
 		this.crud = sCrud;
 	}
 
-	@Override
+	
 	public Set<?> lister(Class cls) throws MNVException {
-		return crud.lister(Tag.class);
+		return crud.lister(TypeStructure.TAG);
 	}
 
-	@Override
-	public Object lire(Object obj, Class cls) throws MNVException {
-		return crud.lire(obj, Tag.class);
+	
+	public Object lire(Object obj, Class cls) throws MNVException, MNVException_Exception {
+		return crud.lire(obj, TypeStructure.TAG);
 	}
 
 	@Override
 	public Object supprimer(Object obj) throws MNVException {
-		return crud.supprimer(obj);
+		try {
+			return crud.supprimer(obj);
+		} catch (MNVException_Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return obj;
 	}
 
 	@Override
 	public Object sauver(Object obj) throws MNVException {
-		return crud.sauver(obj);
+		try {
+			return crud.sauver(obj);
+		} catch (MNVException_Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return obj;
 	}
 
 	@Override
@@ -54,6 +68,18 @@ public class ServiceTagImpl implements IServiceTag {
 		params.put("pTexte", libelle);
 		return (Set<Tag>) crud.faireRequete(Query.TAG_RECHERCHETEXTUELLE, params);
 		
+	}
+
+	@Override
+	public Object lire(Object arg0, TypeStructure arg1) throws MNVException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<?> lister(TypeStructure arg0) throws MNVException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

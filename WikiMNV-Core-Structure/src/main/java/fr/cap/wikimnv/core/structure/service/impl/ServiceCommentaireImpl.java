@@ -1,10 +1,12 @@
 package fr.cap.wikimnv.core.structure.service.impl;
 
+import java.util.List;
 import java.util.Set;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.persistance.CrudService;
 import fr.cap.wikimnv.core.persistance.CrudService_Service;
+import fr.cap.wikimnv.core.persistance.MNVException_Exception;
 import fr.cap.wikimnv.core.pojo.Commentaire;
 import fr.cap.wikimnv.core.pojo.EtatPublication;
 import fr.cap.wikimnv.core.pojo.TypeStructure;
@@ -24,11 +26,12 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 	 * Permet d'obtenir la liste de tous les commentaires
 	 *@return  Renvoie la liste des comentaires
 	 *@author  Sohail, Messan  
+	 * @throws MNVException_Exception 
 	 */ 
 	
-	public Set<?> lister() throws MNVException {
+	public List<Object> lister() throws MNVException, MNVException_Exception {
 		
-		return  crud.lister(Commentaire.class) ;
+		return  crud.lister(TypeStructure.COMMENTAIRE );
 	}
 	
 	/**
@@ -36,11 +39,12 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 	 * @param Le commentaire à lire
 	 * @return  Renvoie le commentaire demandé en paramètre
 	 * @author Sohail, Messan
+	 * @throws MNVException_Exception 
 	 */ 
 
 	
-	public Object lire(Object commentaire) throws MNVException {
-		return crud.lire(commentaire, Commentaire.class) ;
+	public Object lire(Object commentaire) throws MNVException, MNVException_Exception {
+		return crud.lire(commentaire, TypeStructure.COMMENTAIRE) ;
 	}
 	
 	/**
@@ -53,7 +57,13 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 
 	
 	public Object sauver(Object commentaire) throws MNVException {
-		return crud.sauver(commentaire) ;
+		try {
+			return crud.sauver(commentaire) ;
+		} catch (MNVException_Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return commentaire;
 	}
 	
 	/**
@@ -62,10 +72,11 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 	 * @return le commentaire supprimé 
 	 * @author Sohail, Messan
 	 * @throws MNVException 
+	 * @throws MNVException_Exception 
 	 */
 
 	
-	public Commentaire supprimer(Commentaire commentaire) throws MNVException {
+	public Commentaire supprimer(Commentaire commentaire) throws MNVException, MNVException_Exception {
 		return (Commentaire) crud.supprimer(commentaire) ;
 	}
 
@@ -84,13 +95,13 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 		return (Commentaire) sauver(commentaire) ;
 	}
 
-	@Override
+	
 	public Set<?> lister(Class cls) throws MNVException {
 		
 		return null;
 	}
 
-	@Override
+	
 	public Object lire(Object obj, Class cls) throws MNVException {
 		// TODO Auto-generated method stub
 		return null;
