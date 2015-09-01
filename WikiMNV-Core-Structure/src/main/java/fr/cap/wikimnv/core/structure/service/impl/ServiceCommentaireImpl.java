@@ -4,8 +4,10 @@ import java.util.Set;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.persistance.CrudService;
+import fr.cap.wikimnv.core.persistance.CrudService_Service;
 import fr.cap.wikimnv.core.pojo.Commentaire;
 import fr.cap.wikimnv.core.pojo.EtatPublication;
+import fr.cap.wikimnv.core.pojo.TypeStructure;
 import fr.cap.wikimnv.core.structure.service.IServiceCommentaire;
 
 
@@ -14,8 +16,7 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 	  
 	
 	public ServiceCommentaireImpl() {
-		crud = new ServiceCrudImpl();
-		
+		crud = (CrudService) new CrudService_Service();
 		
 	}
 	
@@ -97,6 +98,18 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 
 	@Override
 	public Object supprimer(Object obj) throws MNVException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object lire(Object arg0, TypeStructure arg1) throws MNVException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<?> lister(TypeStructure arg0) throws MNVException {
 		// TODO Auto-generated method stub
 		return null;
 	}
