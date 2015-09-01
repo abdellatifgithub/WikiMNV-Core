@@ -20,15 +20,31 @@
 
 	<!--  web service admin serviceUser -->
 	<jaxws:server serviceClass="fr.cap.wikimnv.service.IServiceUser" address="/serviceUser" serviceBean="#ServiceUser"> </jaxws:server>
-	
-	<!-- injection du logger cli -->
-	<bean id="ServiceLog" class="fr.cap.wikimnv.logger.LoggerCLI" />
-	
+		
 	<!-- injection des implementations serviceProfil et serviceUser -->
 	<bean id="ServiceProfil" class="fr.cap.wikimnv.service.impl.ServiceProfilImpl" />
 	<bean id="ServiceUser" class="fr.cap.wikimnv.service.impl.ServiceUserImpl" />
 
 	<!-- injection de Icrudimpl -->
+	<!-- TODO -->
+
+
+	<!-- injection du logger cli -->
+	<bean id="ServiceLog" class="fr.cap.wikimnv.logger.LoggerCLI" />
+	<!-- AOP pour le logger -->
+	<aop:config>
+		<aop:aspect id="sLoggerAspect" ref="ServiceLog">
+			
+			
+			<aop:pointcut id="perfLogger" expression="execution(* fr.cap.wikimnv.service.impl..*(..))" />
+			<aop:around pointcut-ref="perfLogger" method="logProcess" />
+
+			<aop:pointcut id="eventLogger" expression="execution(* fr.cap.wikimnv.service.impl..set*(..))" />
+			<aop:before pointcut-ref="eventLogger" method="logEvent" />
+			
+			
+		</aop:aspect>
+	</aop:config>
 
 
 </beans>

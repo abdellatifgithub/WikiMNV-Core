@@ -6,7 +6,7 @@ import fr.cap.wikimnv.core.commons.ICRUDGeneric;
 import fr.cap.wikimnv.core.commons.exception.MNVException;
 
 
-@WebService(name="profilUser", serviceName="profilUser")
+@WebService(name="userService", serviceName="userService")
 public interface IServiceUser extends ICRUDGeneric {
 		
 	void bannir(Object id) throws MNVException;
