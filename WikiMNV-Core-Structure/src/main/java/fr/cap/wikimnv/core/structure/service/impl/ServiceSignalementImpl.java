@@ -15,8 +15,8 @@ import fr.cap.wikimnv.core.structure.service.IServiceSignalement;
 public class ServiceSignalementImpl implements IServiceSignalement {
 
 	CrudService crud;
-	public ICRUD getsCrud() {return crud;}
-	public void setsCrud(ICRUD sCrud) {this.crud = sCrud;}
+	public CrudService getsCrud() {return crud;}
+	public void setsCrud(CrudService sCrud) {this.crud = sCrud;}
 	
 	
 

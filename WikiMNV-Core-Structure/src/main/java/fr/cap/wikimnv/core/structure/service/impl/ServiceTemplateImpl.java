@@ -11,11 +11,11 @@ public class ServiceTemplateImpl implements IServiceTemplate {
 	
 	CrudService crud;
 	
-	public ICRUD getsCrud() {
+	public CrudService getsCrud() {
 		return crud;
 	}
 
-	public void setsCrud(ICRUD sCrud) {
+	public void setsCrud(CrudService sCrud) {
 		this.crud = sCrud;
 	}
 

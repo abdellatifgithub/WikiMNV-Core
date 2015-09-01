@@ -20,11 +20,11 @@ public class ServiceTagImpl implements IServiceTag {
 	@Autowired
 	CrudService crud;
 	
-	public ICRUD getsCrud() {
+	public CrudService getsCrud() {
 		return crud;
 	}
 
-	public void setsCrud(ICRUD sCrud) {
+	public void setsCrud(CrudService sCrud) {
 		this.crud = sCrud;
 	}
 
