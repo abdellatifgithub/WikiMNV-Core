@@ -3,11 +3,13 @@ package fr.cap.wikimnv.core.structure.service;
 
 import java.util.Set;
 
+import javax.jws.WebService;
+
 import fr.cap.wikimnv.core.commons.ICRUDGeneric;
 import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.pojo.Tag;
 
-
+@WebService(name="tagService", serviceName="tagService")
 public interface IServiceTag extends ICRUDGeneric{
 	
 	/**

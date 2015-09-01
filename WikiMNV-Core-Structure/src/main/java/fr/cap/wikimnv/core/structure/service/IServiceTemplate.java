@@ -1,11 +1,13 @@
 package fr.cap.wikimnv.core.structure.service;
 
+import javax.jws.WebService;
+
 import fr.cap.wikimnv.core.commons.ICRUDGeneric;
 import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.pojo.Template;
 
 
-
+@WebService(name="templateService", serviceName="templateService")
 public interface IServiceTemplate extends ICRUDGeneric {
 	
 	/**
