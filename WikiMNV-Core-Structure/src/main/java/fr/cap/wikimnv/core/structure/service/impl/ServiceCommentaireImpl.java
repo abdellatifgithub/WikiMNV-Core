@@ -5,6 +5,7 @@ import java.util.Set;
 import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.persistance.CrudService;
 import fr.cap.wikimnv.core.persistance.CrudService_Service;
+import fr.cap.wikimnv.core.persistance.MNVException_Exception;
 import fr.cap.wikimnv.core.pojo.Commentaire;
 import fr.cap.wikimnv.core.pojo.EtatPublication;
 import fr.cap.wikimnv.core.pojo.TypeStructure;
@@ -53,7 +54,13 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 
 	
 	public Object sauver(Object commentaire) throws MNVException {
-		return crud.sauver(commentaire) ;
+		try {
+			return crud.sauver(commentaire) ;
+		} catch (MNVException_Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return commentaire;
 	}
 	
 	/**
@@ -62,10 +69,11 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 	 * @return le commentaire supprimé 
 	 * @author Sohail, Messan
 	 * @throws MNVException 
+	 * @throws MNVException_Exception 
 	 */
 
 	
-	public Commentaire supprimer(Commentaire commentaire) throws MNVException {
+	public Commentaire supprimer(Commentaire commentaire) throws MNVException, MNVException_Exception {
 		return (Commentaire) crud.supprimer(commentaire) ;
 	}
 
@@ -84,13 +92,13 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 		return (Commentaire) sauver(commentaire) ;
 	}
 
-	@Override
+	
 	public Set<?> lister(Class cls) throws MNVException {
 		
 		return null;
 	}
 
-	@Override
+	
 	public Object lire(Object obj, Class cls) throws MNVException {
 		// TODO Auto-generated method stub
 		return null;
