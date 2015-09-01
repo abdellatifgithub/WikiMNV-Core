@@ -5,23 +5,26 @@ package fr.cap.wikimnv.core.structure.service.impl;
 import java.util.Set;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
+import fr.cap.wikimnv.core.persistance.CrudService;
 import fr.cap.wikimnv.core.pojo.Contenu;
+import fr.cap.wikimnv.core.pojo.EtatSignalement;
+import fr.cap.wikimnv.core.pojo.Signalement;
 import fr.cap.wikimnv.core.pojo.User;
 import fr.cap.wikimnv.core.structure.service.IServiceSignalement;
 
 public class ServiceSignalementImpl implements IServiceSignalement {
 
-	ICRUD sCrud;
-	public ICRUD getsCrud() {return sCrud;}
-	public void setsCrud(ICRUD sCrud) {this.sCrud = sCrud;}
+	CrudService crud;
+	public ICRUD getsCrud() {return crud;}
+	public void setsCrud(ICRUD sCrud) {this.crud = sCrud;}
 	
 	
 
 	private Signalement changerEtat(EtatSignalement etat, Object key) throws MNVException {
-		Signalement sig = (Signalement) sCrud.lire(key, Signalement.class);
+		Signalement sig = (Signalement) crud.lire(key, Signalement.class);
 		sig.setEtat(etat);
 
-		return (Signalement)sCrud.sauver(sig);		
+		return (Signalement)crud.sauver(sig);		
 	}
 
 	@Override
@@ -37,25 +40,25 @@ public class ServiceSignalementImpl implements IServiceSignalement {
 
 	@Override
 	public Set<?> lister(Class cl) throws MNVException {
-		return sCrud.lister(cl);
+		return crud.lister(cl);
 	}
 
 
 	@Override
 	public Object lire(Object key, Class cl) throws MNVException {
-		return sCrud.lire(key, cl);
+		return crud.lire(key, cl);
 	}
 
 
 	@Override
 	public Object supprimer(Object obj) throws MNVException {
-		return sCrud.supprimer(obj);
+		return crud.supprimer(obj);
 	}
 
 
 	@Override
 	public Object sauver(Object obj) throws MNVException {
-		return sCrud.sauver(obj);
+		return crud.sauver(obj);
 	}
 
 
