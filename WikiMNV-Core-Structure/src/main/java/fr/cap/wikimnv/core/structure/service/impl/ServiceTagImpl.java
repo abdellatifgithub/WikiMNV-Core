@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
+import fr.cap.wikimnv.core.persistance.CrudService;
 import fr.cap.wikimnv.core.pojo.Query;
 import fr.cap.wikimnv.core.pojo.Tag;
 import fr.cap.wikimnv.core.structure.service.IServiceTag;
@@ -17,41 +18,41 @@ import fr.cap.wikimnv.core.structure.service.IServiceTag;
 public class ServiceTagImpl implements IServiceTag {
 	
 	@Autowired
-	ICRUD sCrud;
+	CrudService crud;
 	
 	public ICRUD getsCrud() {
-		return sCrud;
+		return crud;
 	}
 
 	public void setsCrud(ICRUD sCrud) {
-		this.sCrud = sCrud;
+		this.crud = sCrud;
 	}
 
 	@Override
 	public Set<?> lister(Class cls) throws MNVException {
-		return sCrud.lister(Tag.class);
+		return crud.lister(Tag.class);
 	}
 
 	@Override
 	public Object lire(Object obj, Class cls) throws MNVException {
-		return sCrud.lire(obj, Tag.class);
+		return crud.lire(obj, Tag.class);
 	}
 
 	@Override
 	public Object supprimer(Object obj) throws MNVException {
-		return sCrud.supprimer(obj);
+		return crud.supprimer(obj);
 	}
 
 	@Override
 	public Object sauver(Object obj) throws MNVException {
-		return sCrud.sauver(obj);
+		return crud.sauver(obj);
 	}
 
 	@Override
 	public Set<Tag> rechercheTextuelle(String libelle) throws MNVException {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("pTexte", libelle);
-		return (Set<Tag>) sCrud.faireRequete(Query.TAG_RECHERCHETEXTUELLE, params);
+		return (Set<Tag>) crud.faireRequete(Query.TAG_RECHERCHETEXTUELLE, params);
 		
 	}
 	

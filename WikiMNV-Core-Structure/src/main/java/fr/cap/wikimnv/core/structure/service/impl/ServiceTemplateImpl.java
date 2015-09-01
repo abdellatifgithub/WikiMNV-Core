@@ -3,19 +3,20 @@ package fr.cap.wikimnv.core.structure.service.impl;
 import java.util.Set;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
+import fr.cap.wikimnv.core.persistance.CrudService;
 import fr.cap.wikimnv.core.pojo.Template;
 import fr.cap.wikimnv.core.structure.service.IServiceTemplate;
 
 public class ServiceTemplateImpl implements IServiceTemplate {
 	
-	ICRUD sCrud;
+	CrudService crud;
 	
 	public ICRUD getsCrud() {
-		return sCrud;
+		return crud;
 	}
 
 	public void setsCrud(ICRUD sCrud) {
-		this.sCrud = sCrud;
+		this.crud = sCrud;
 	}
 
 	public void ajouterMeta(Template template, String metadonnee) throws MNVException {
@@ -30,22 +31,22 @@ public class ServiceTemplateImpl implements IServiceTemplate {
 
 	public Object lire(Object obj, Class cls) throws MNVException {
 		// TODO Auto-generated method stub
-		return sCrud.lire(obj, Template.class);
+		return crud.lire(obj, Template.class);
 	}
 
 	public Set<?> lister(Class cls) throws MNVException {
 		// TODO Auto-generated method stub
-		return sCrud.lister(Template.class);
+		return crud.lister(Template.class);
 	}
 
 	public Object sauver(Object obj) throws MNVException {
 		// TODO Auto-generated method stub
-		return sCrud.sauver(obj);
+		return crud.sauver(obj);
 	}
 
 	public Object supprimer(Object obj) throws MNVException {
 		// TODO Auto-generated method stub
-		return sCrud.supprimer(obj);
+		return crud.supprimer(obj);
 	}
 
 }

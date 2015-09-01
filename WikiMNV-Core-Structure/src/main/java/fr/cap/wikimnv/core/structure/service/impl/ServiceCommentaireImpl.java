@@ -3,13 +3,14 @@ package fr.cap.wikimnv.core.structure.service.impl;
 import java.util.Set;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
+import fr.cap.wikimnv.core.persistance.CrudService;
 import fr.cap.wikimnv.core.pojo.Commentaire;
 import fr.cap.wikimnv.core.pojo.EtatPublication;
 import fr.cap.wikimnv.core.structure.service.IServiceCommentaire;
 
 
 public class ServiceCommentaireImpl implements IServiceCommentaire {
-	IServiceCRUD crud ;
+	CrudService crud ;
 	  
 	
 	public ServiceCommentaireImpl() {
