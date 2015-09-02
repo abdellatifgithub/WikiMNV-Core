@@ -1,5 +1,6 @@
 package fr.cap.wikimnv.core.structure.service.impl;
 
+import java.util.List;
 import java.util.Set;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
@@ -36,7 +37,7 @@ public class ServiceTemplateImpl implements IServiceTemplate {
 		return crud.lire(obj, TypeStructure.TEMPLATE);
 	}
 
-	public Set<?> lister(Class cls) throws MNVException {
+	public List<Object> lister(Class cls) throws MNVException, MNVException_Exception {
 		// TODO Auto-generated method stub
 		return crud.lister(TypeStructure.TEMPLATE);
 	}
