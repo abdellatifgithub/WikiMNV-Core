@@ -7,7 +7,7 @@ import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.pojo.Commentaire;
 import fr.cap.wikimnv.core.pojo.EtatPublication;
 
-@WebService(name="commentaireService", serviceName="commentaireService")
+@WebService(name="ServiceCommentaire", serviceName="ServiceCommentaire")
 public interface IServiceCommentaire extends ICRUDGeneric {
 	Commentaire banir(Commentaire commentaire,  EtatPublication etat) throws MNVException ;
 	}

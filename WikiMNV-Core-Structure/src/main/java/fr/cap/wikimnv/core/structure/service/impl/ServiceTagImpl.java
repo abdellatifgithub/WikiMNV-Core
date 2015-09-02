@@ -1,8 +1,12 @@
 package fr.cap.wikimnv.core.structure.service.impl;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +21,7 @@ import fr.cap.wikimnv.core.structure.service.IServiceTag;
 
 
 @Service("sTag")
-public class ServiceTagImpl implements IServiceTag {
+public class ServiceTagImpl extends XmlAdapter<String, Object> implements IServiceTag {
 	
 	@Autowired
 	CrudService crud;
@@ -31,7 +35,7 @@ public class ServiceTagImpl implements IServiceTag {
 	}
 
 	
-	public Set<?> lister(Class cls) throws MNVException {
+	public List<Object> lister(Class cls) throws MNVException, MNVException_Exception {
 		return crud.lister(TypeStructure.TAG);
 	}
 
@@ -64,9 +68,10 @@ public class ServiceTagImpl implements IServiceTag {
 
 	@Override
 	public Set<Tag> rechercheTextuelle(String libelle) throws MNVException {
-		Map<String, Object> params = new HashMap<String, Object>();
+		Map<String, Object> params = new LinkedHashMap<String, Object>();
 		params.put("pTexte", libelle);
-		return (Set<Tag>) crud.faireRequete(Query.TAG_RECHERCHETEXTUELLE, params);
+		// return (Set<Tag>) crud.faireRequete(Query.TAG_RECHERCHETEXTUELLE, params);
+		return null ;
 		
 	}
 
@@ -78,6 +83,18 @@ public class ServiceTagImpl implements IServiceTag {
 
 	@Override
 	public Set<?> lister(TypeStructure arg0) throws MNVException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object unmarshal(String v) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String marshal(Object v) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

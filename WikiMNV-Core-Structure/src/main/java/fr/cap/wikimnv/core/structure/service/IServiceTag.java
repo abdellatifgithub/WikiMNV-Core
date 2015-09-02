@@ -9,7 +9,7 @@ import fr.cap.wikimnv.core.commons.ICRUDGeneric;
 import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.pojo.Tag;
 
-@WebService(name="tagService", serviceName="tagService")
+@WebService(name="ServiceTag", serviceName="ServiceTag")
 public interface IServiceTag extends ICRUDGeneric{
 	
 	/**

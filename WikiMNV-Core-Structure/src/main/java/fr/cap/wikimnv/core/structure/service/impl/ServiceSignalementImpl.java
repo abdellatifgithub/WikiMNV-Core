@@ -2,6 +2,7 @@ package fr.cap.wikimnv.core.structure.service.impl;
 
 
 
+import java.util.List;
 import java.util.Set;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
@@ -22,7 +23,7 @@ public class ServiceSignalementImpl implements IServiceSignalement {
 	
 	
 
-	private Signalement changerEtat(EtatSignalement etat, Object key) throws MNVException {
+	private Signalement changerEtat(EtatSignalement etat, Object key) throws MNVException, MNVException_Exception {
 		Signalement sig = (Signalement) crud.lire(key, TypeStructure.SIGNALEMENT);
 		sig.setEtat(etat);
 
@@ -30,24 +31,24 @@ public class ServiceSignalementImpl implements IServiceSignalement {
 	}
 
 	
-	public Signalement rejeter(Object id) throws MNVException {
+	public Signalement rejeter(Object id) throws MNVException, MNVException_Exception {
 		return changerEtat(EtatSignalement.REJETE, id);
 	}
 	
 	
-	public Signalement traiter(Object id) throws MNVException {
+	public Signalement traiter(Object id) throws MNVException, MNVException_Exception {
 		return changerEtat(EtatSignalement.TRAITE, id);
 	}
 
 
 	
-	public Set<?> lister(Class cl) throws MNVException {
+	public List<Object> lister(Class cl) throws MNVException, MNVException_Exception {
 		return crud.lister(TypeStructure.SIGNALEMENT);
 	}
 
 
 	
-	public Object lire(Object key, Class cl) throws MNVException {
+	public Object lire(Object key, Class cl) throws MNVException, MNVException_Exception {
 		return crud.lire(key, TypeStructure.SIGNALEMENT);
 	}
 
