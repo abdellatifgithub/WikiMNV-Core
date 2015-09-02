@@ -38,5 +38,6 @@ public class Signalement{
 	public void setUser(User user) {this.user = user;}
 	public String getReference() {return reference;}
 	public Date getDate() {return date;}
+	public void setReference(String reference) {this.reference = reference;}
 	public void setDate(Date date) {this.date = date;}
 }
