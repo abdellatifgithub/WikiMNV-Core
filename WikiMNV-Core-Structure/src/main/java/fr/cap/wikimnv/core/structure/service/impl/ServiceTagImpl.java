@@ -21,7 +21,7 @@ import fr.cap.wikimnv.core.structure.service.IServiceTag;
 
 
 @Service("sTag")
-public class ServiceTagImpl extends XmlAdapter<String, Object> implements IServiceTag {
+public class ServiceTagImpl implements IServiceTag {
 	
 	@Autowired
 	CrudService crud;
@@ -68,7 +68,7 @@ public class ServiceTagImpl extends XmlAdapter<String, Object> implements IServi
 
 	@Override
 	public Set<Tag> rechercheTextuelle(String libelle) throws MNVException {
-		Map<String, Object> params = new LinkedHashMap<String, Object>();
+		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("pTexte", libelle);
 		// return (Set<Tag>) crud.faireRequete(Query.TAG_RECHERCHETEXTUELLE, params);
 		return null ;
@@ -87,13 +87,11 @@ public class ServiceTagImpl extends XmlAdapter<String, Object> implements IServi
 		return null;
 	}
 
-	@Override
 	public Object unmarshal(String v) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public String marshal(Object v) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
