@@ -70,7 +70,7 @@ public class ServiceTagImpl implements IServiceTag {
 	public Set<Tag> rechercheTextuelle(String libelle) throws MNVException {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("pTexte", libelle);
-		return (Set<Tag>) crud.faireRequete(Query.TAG_RECHERCHETEXTUELLE, params);
+		// return (Set<Tag>) crud.faireRequete(Query.TAG_RECHERCHETEXTUELLE, params);
 		return null ;
 		
 	}
