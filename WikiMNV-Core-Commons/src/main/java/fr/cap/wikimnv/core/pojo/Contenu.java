@@ -3,6 +3,12 @@ package fr.cap.wikimnv.core.pojo;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public abstract class Contenu {
 	Profil author;
 	EtatPublication  etat;
@@ -10,6 +16,10 @@ public abstract class Contenu {
 	Date datePublication;
 	String version;
 	
+	public Contenu() {
+		super();
+	}
+
 	public Contenu(Profil author) {
 		super();
 		this.author = author;

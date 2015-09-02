@@ -3,6 +3,7 @@ package fr.cap.wikimnv.core.pojo;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class Article extends Contenu {     
 	Template template;
 	
