@@ -7,10 +7,14 @@ public class ServiceProfilCli {
 
 	ProfilService profilService = null;
 
-	public ServiceProfilCli() {
+	public ServiceProfilCli() {}
+	
+	public ProfilService getProfilService(){
+		
 		if (profilService == null) {
 			profilService = (new ProfilService_Service()).getProfilServicePort();
 		}
+		return profilService;
 	}
 
 }

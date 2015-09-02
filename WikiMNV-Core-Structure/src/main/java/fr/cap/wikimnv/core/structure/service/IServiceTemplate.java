@@ -7,7 +7,7 @@ import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.pojo.Template;
 
 
-@WebService(name="templateService", serviceName="templateService")
+@WebService(name="ServiceTemplate", serviceName="ServiceTemplate")
 public interface IServiceTemplate extends ICRUDGeneric {
 	
 	/**

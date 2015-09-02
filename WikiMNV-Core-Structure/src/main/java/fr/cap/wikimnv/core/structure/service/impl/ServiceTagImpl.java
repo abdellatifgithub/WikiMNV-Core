@@ -1,9 +1,12 @@
 package fr.cap.wikimnv.core.structure.service.impl;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -80,6 +83,16 @@ public class ServiceTagImpl implements IServiceTag {
 
 	@Override
 	public Set<?> lister(TypeStructure arg0) throws MNVException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object unmarshal(String v) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String marshal(Object v) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -7,7 +7,7 @@ import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.pojo.EtatPublication;
 
 
-@WebService(name="articleService", serviceName="articleService")
+@WebService(name="ServiceArticle", serviceName="ServiceArticle")
 public interface IServiceArticle extends ICRUDGeneric {
 	/**
 	 * elle permet de changer l'etat de mon article
