@@ -11,7 +11,7 @@ import fr.cap.wikimnv.core.pojo.Contenu;
 import fr.cap.wikimnv.core.pojo.Signalement;
 import fr.cap.wikimnv.core.pojo.User;
 
-@WebService(name="signalementService", serviceName="signalementService")
+@WebService(name="ServiceSignalement", serviceName="ServiceSignalement")
 public interface IServiceSignalement extends ICRUDGeneric
 {
 	void signaler(Contenu contenu, User user) throws MNVException;
