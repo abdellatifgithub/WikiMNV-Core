@@ -14,29 +14,28 @@
             http://www.cxf.apache.org/bindings/soap http://www.cxf.apache.org/bindings/schemas/configuration/soap.xsd
 			http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 			
-	<!--  web service admin serviceArticle -->
-	<jaxws:server serviceClass="fr.cap.wikimnv.core.structure.service.IServiceArticle" address="/serviceArticle" serviceBean="#ServiceArticle"> </jaxws:server>
+	
+	
 
-	<!--  web service admin serviceCommentaire -->
-	<jaxws:server serviceClass="fr.cap.wikimnv.core.structure.service.IServiceCommentaire" address="/serviceCommentaire" serviceBean="#ServiceCommentaire"> </jaxws:server>
 	
-	<!--  web service admin ServiceSignalement -->
-	<jaxws:server serviceClass="fr.cap.wikimnv.core.structure.service.IServiceSignalement" address="/serviceSignalement" serviceBean="#ServiceSignalement"> </jaxws:server>
 	
-	<!--  web service admin ServiceTag -->
-	<jaxws:server serviceClass="fr.cap.wikimnv.core.structure.service.IServiceTag" address="/serviceTag" serviceBean="#ServiceTag"> </jaxws:server>
 	
-	<!--  web service admin ServiceTemplate -->
+	
+	
+	
+	
 	
 	<jaxws:server serviceClass=" fr.cap.wikimnv.core.structure.service.IServiceArticle" address="/ServiceArticle" serviceBean="#ServiceArticle"> </jaxws:server>
 	<jaxws:server serviceClass=" fr.cap.wikimnv.core.structure.service.IServiceCommentaire" address="/ServiceCommentaire" serviceBean="#ServiceCommentaire"> </jaxws:server>
 	<jaxws:server serviceClass=" fr.cap.wikimnv.core.structure.service.IServiceSignalement" address="/ServiceSignalement" serviceBean="#ServiceSignalement"> </jaxws:server>
 	<jaxws:server serviceClass=" fr.cap.wikimnv.core.structure.service.IServiceTag" address="/ServiceTag" serviceBean="#ServiceTag"> </jaxws:server>
 	<jaxws:server serviceClass=" fr.cap.wikimnv.core.structure.service.IServiceTemplate" address="/ServiceTemplate" serviceBean="#ServiceTemplate"> </jaxws:server>
+	<jaxws:server serviceClass=" fr.cap.wikimnv.core.structure.service.IServiceSignalement" address="/ServiceSignalement" serviceBean="#ServiceSignalement"> </jaxws:server>
 	
 	<bean id="ServiceArticle" class="fr.cap.wikimnv.core.structure.service.impl.ServiceArticleImpl" />
 	<bean id="ServiceCommentaire" class="fr.cap.wikimnv.core.structure.service.impl.ServiceCommentaireImpl" />
 	<bean id="ServiceSignalement" class="fr.cap.wikimnv.core.structure.service.impl.ServiceSignalementImpl" />
 	<bean id="ServiceTag" class="fr.cap.wikimnv.core.structure.service.impl.ServiceTagImpl" />
 	<bean id="ServiceTemplate" class="fr.cap.wikimnv.core.structure.service.impl.ServiceTemplateImpl" />
+	<bean id="ServiceSignalement" class="fr.cap.wikimnv.core.structure.service.impl.ServiceSignalementImpl" />
 </beans>

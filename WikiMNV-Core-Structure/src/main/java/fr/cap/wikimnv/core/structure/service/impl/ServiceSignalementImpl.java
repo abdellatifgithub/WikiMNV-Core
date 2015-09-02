@@ -42,7 +42,7 @@ public class ServiceSignalementImpl implements IServiceSignalement {
 
 
 	
-	public List<Object> lister(Class cl) throws MNVException, MNVException_Exception {
+	/*public List<Object> lister(Class cl) throws MNVException, MNVException_Exception {
 		return crud.lister(TypeStructure.SIGNALEMENT);
 	}
 
@@ -50,7 +50,7 @@ public class ServiceSignalementImpl implements IServiceSignalement {
 	
 	public Object lire(Object key, Class cl) throws MNVException, MNVException_Exception {
 		return crud.lire(key, TypeStructure.SIGNALEMENT);
-	}
+	}*/
 
 
 	
@@ -82,12 +82,14 @@ public class ServiceSignalementImpl implements IServiceSignalement {
 		Signalement sig = new Signalement(contenu, user);
 		sauver(sig);		
 	}
-	@Override
+	
+	
 	public Object lire(Object arg0, TypeStructure arg1) throws MNVException {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
+	
+	
 	public Set<?> lister(TypeStructure arg0) throws MNVException {
 		// TODO Auto-generated method stub
 		return null;

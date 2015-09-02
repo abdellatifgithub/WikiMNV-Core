@@ -17,9 +17,7 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 	CrudService crud ;
 	  
 	
-	public ServiceCommentaireImpl() {
-		crud = (CrudService) new CrudService_Service();
-		
+	public ServiceCommentaireImpl() {		
 	}
 	
 	/**
