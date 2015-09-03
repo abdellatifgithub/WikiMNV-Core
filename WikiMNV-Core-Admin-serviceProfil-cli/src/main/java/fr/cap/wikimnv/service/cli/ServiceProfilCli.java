@@ -7,6 +7,13 @@ public class ServiceProfilCli {
 
 	ProfilService profilService = null;
 
+	/**
+	 * Creation d'un wrapper pour utiliser le client proprement avec vos spring
+	 * le constructeur a été volontairement laissé vide, pour empecher les bugs:
+	 * si un serveur hébergant un webservice est down lors du lancement de vos apps
+	 * (pb de dépendance forte!)
+	 */
+	
 	public ServiceProfilCli() {}
 	
 	public ProfilService getProfilService(){
