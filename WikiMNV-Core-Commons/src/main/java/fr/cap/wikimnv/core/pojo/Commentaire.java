@@ -1,6 +1,8 @@
 package fr.cap.wikimnv.core.pojo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,13 +15,13 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Commentaire extends Contenu {     
 	@XmlTransient
 	Template template;
-	Map<String, Object> metaValeurs;
+	List<Meta> metas;
 	public Commentaire(Profil author,Template template) {
 		super(author);
 		this.template=template;
-		metaValeurs =new HashMap<String, Object>();
+		metas=new ArrayList<Meta>();
 	}
-	public void ajouterAttributDuContenu(String metaAttribut, Object valeurAttribut ) {
-		metaValeurs.put(metaAttribut, valeurAttribut);
+	public void ajouterAttributDuContenu(String metaAttribut, String valeurAttribut) {
+		metas.add(new Meta(metaAttribut, valeurAttribut));
 	}
-}     
+}
