@@ -14,6 +14,7 @@ public class Article extends Contenu {
 	@XmlTransient
 	Template template;
 	
+	
 	Map<String, Object> metaValeurs;
 	public Article(Profil author,Template template) {
 		super(author);
