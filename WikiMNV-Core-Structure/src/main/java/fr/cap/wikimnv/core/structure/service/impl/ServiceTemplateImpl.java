@@ -6,21 +6,14 @@ import java.util.Set;
 import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.persistance.CrudService;
 import fr.cap.wikimnv.core.persistance.MNVException_Exception;
+import fr.cap.wikimnv.core.persistance.cli.PersistanceCli;
 import fr.cap.wikimnv.core.pojo.Template;
 import fr.cap.wikimnv.core.pojo.TypeStructure;
 import fr.cap.wikimnv.core.structure.service.IServiceTemplate;
 
 public class ServiceTemplateImpl implements IServiceTemplate {
 	
-	CrudService crud;
-	
-	public CrudService getsCrud() {
-		return crud;
-	}
-
-	public void setsCrud(CrudService sCrud) {
-		this.crud = sCrud;
-	}
+	PersistanceCli sCrud ;
 
 	public void ajouterMeta(Template template, String metadonnee) throws MNVException {
 		template.getMeta().add(metadonnee);
@@ -34,18 +27,18 @@ public class ServiceTemplateImpl implements IServiceTemplate {
 
 	public Object lire(Object obj, Class cls) throws MNVException, MNVException_Exception {
 		// TODO Auto-generated method stub
-		return crud.lire(obj, TypeStructure.TEMPLATE);
+		return sCrud.lire(obj, TypeStructure.TEMPLATE);
 	}
 
 	public List<Object> lister(Class cls) throws MNVException, MNVException_Exception {
 		// TODO Auto-generated method stub
-		return crud.lister(TypeStructure.TEMPLATE);
+		return sCrud.lister(TypeStructure.TEMPLATE);
 	}
 
 	public Object sauver(Object obj) throws MNVException {
 		// TODO Auto-generated method stub
 		try {
-			return crud.sauver(obj);
+			return sCrud.sauver(obj);
 		} catch (MNVException_Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -56,7 +49,7 @@ public class ServiceTemplateImpl implements IServiceTemplate {
 	public Object supprimer(Object obj) throws MNVException {
 		// TODO Auto-generated method stub
 		try {
-			return crud.supprimer(obj);
+			return sCrud.supprimer(obj);
 		} catch (MNVException_Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -74,6 +67,14 @@ public class ServiceTemplateImpl implements IServiceTemplate {
 	public Set<?> lister(TypeStructure arg0) throws MNVException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public PersistanceCli getsCrud() {
+		return sCrud;
+	}
+
+	public void setsCrud(PersistanceCli sCrud) {
+		this.sCrud = sCrud;
 	}
 	
 	

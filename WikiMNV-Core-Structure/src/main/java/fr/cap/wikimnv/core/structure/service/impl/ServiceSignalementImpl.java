@@ -3,11 +3,13 @@ package fr.cap.wikimnv.core.structure.service.impl;
 
 
 import java.util.List;
+
 import java.util.Set;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.persistance.CrudService;
 import fr.cap.wikimnv.core.persistance.MNVException_Exception;
+import fr.cap.wikimnv.core.persistance.cli.PersistanceCli;
 import fr.cap.wikimnv.core.pojo.Contenu;
 import fr.cap.wikimnv.core.pojo.EtatSignalement;
 import fr.cap.wikimnv.core.pojo.Signalement;
@@ -17,26 +19,39 @@ import fr.cap.wikimnv.core.structure.service.IServiceSignalement;
 
 public class ServiceSignalementImpl implements IServiceSignalement {
 
-	CrudService crud;
-	public CrudService getsCrud() {return crud;}
-	public void setsCrud(CrudService sCrud) {this.crud = sCrud;}
+	PersistanceCli sCrud ;
+	public PersistanceCli getsCrud() {return sCrud;}
+	public void setsCrud(PersistanceCli sCrud) {this.sCrud = sCrud;}
 	
 	
 
-	private Signalement changerEtat(EtatSignalement etat, Object key) throws MNVException, MNVException_Exception {
-		Signalement sig = (Signalement) crud.lire(key, TypeStructure.SIGNALEMENT);
+	private Signalement changerEtat(EtatSignalement etat, Object key) throws MNVException {
+		Signalement sig = null ;
+		try {
+			sig = (Signalement) sCrud.lire(key, TypeStructure.SIGNALEMENT);
+		} catch (MNVException_Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		sig.setEtat(etat);
 
-		return (Signalement)crud.sauver(sig);		
+		try {
+			return (Signalement)sCrud.sauver(sig);
+		} catch (MNVException_Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		
+		return null;
 	}
 
 	
-	public Signalement rejeter(Object id) throws MNVException, MNVException_Exception {
+	public Signalement rejeter(Object id) throws MNVException {
 		return changerEtat(EtatSignalement.REJETE, id);
 	}
 	
 	
-	public Signalement traiter(Object id) throws MNVException, MNVException_Exception {
+	public Signalement traiter(Object id) throws MNVException {
 		return changerEtat(EtatSignalement.TRAITE, id);
 	}
 
@@ -56,24 +71,28 @@ public class ServiceSignalementImpl implements IServiceSignalement {
 	
 	public Object supprimer(Object obj) throws MNVException {
 		try {
-			return crud.supprimer(obj);
+			return sCrud.supprimer(obj);
 		} catch (MNVException_Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return obj;
+		
+		return null;
 	}
 
 
 	
 	public Object sauver(Object obj) throws MNVException {
-		try {
-			return crud.sauver(obj);
-		} catch (MNVException_Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return obj;
+		
+			try {
+				return sCrud.sauver(obj);
+			} catch (MNVException_Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return null;
+		
 	}
 
 

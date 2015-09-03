@@ -15,8 +15,8 @@ import fr.cap.wikimnv.core.pojo.User;
 public interface IServiceSignalement extends ICRUDGeneric
 {
 	void signaler(Contenu contenu, User user) throws MNVException;
-	Signalement rejeter(Object id) throws MNVException, MNVException_Exception;
-	Signalement traiter(Object id) throws MNVException, MNVException_Exception;
+	Signalement rejeter(Object id) throws MNVException ;
+	Signalement traiter(Object id) throws MNVException ;
 }
 
 
