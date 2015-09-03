@@ -1,14 +1,15 @@
 package fr.cap.wikimnv.core.structure.service.impl;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
-import fr.cap.wikimnv.core.persistance.CrudService;
 import fr.cap.wikimnv.core.persistance.MNVException_Exception;
 import fr.cap.wikimnv.core.persistance.cli.PersistanceCli;
 import fr.cap.wikimnv.core.pojo.Article;
 import fr.cap.wikimnv.core.pojo.EtatPublication;
+import fr.cap.wikimnv.core.pojo.Query;
 import fr.cap.wikimnv.core.pojo.TypeStructure;
 import fr.cap.wikimnv.core.structure.service.IServiceArticle;
 
@@ -21,7 +22,8 @@ public class ServiceArticleImpl implements IServiceArticle {
 		try {
 			article = (Article) sCrud.lire(idArticle, TypeStructure.ARTICLE);
 		} catch (MNVException_Exception e) {
-			e.getMessage();
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		article.setEtat(etatPublication);
 	}
@@ -30,6 +32,7 @@ public class ServiceArticleImpl implements IServiceArticle {
 		try {
 			return sCrud.lister(TypeStructure.ARTICLE);
 		} catch (MNVException_Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
@@ -95,6 +98,11 @@ public class ServiceArticleImpl implements IServiceArticle {
 			throws MNVException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public Object rechercher(Query query, Map<String, Object> params) {
+		// return sCrud.faireRequete(query, params) ;
+		return null ;
 	}
 
 }
