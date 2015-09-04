@@ -12,16 +12,21 @@ import javax.xml.bind.annotation.XmlTransient;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Commentaire extends Contenu {     
+public class Commentaire extends Contenu {   
+	
 	@XmlTransient
-	Template template;
-	List<Meta> metas;
+	private Template template;
+	private List<Meta> metas;
+	
+	
 	public Commentaire(Profil author,Template template) {
 		super(author);
 		this.template=template;
 		metas=new ArrayList<Meta>();
 	}
+	
 	public void ajouterAttributDuContenu(String metaAttribut, String valeurAttribut) {
 		metas.add(new Meta(metaAttribut, valeurAttribut));
 	}
+	
 }

@@ -9,8 +9,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Template {
-	String nom;
-	List<String> meta;
+	
+	private String nom;
+	private List<String> meta;
 	
 	public Template(String nom, List<String> meta) {
 		this.nom = nom;

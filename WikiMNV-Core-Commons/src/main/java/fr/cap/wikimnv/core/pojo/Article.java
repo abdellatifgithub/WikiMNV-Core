@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Article extends Contenu {     
 	@XmlTransient
-	Template template;
+	private Template template;
 	
 	List<Meta> metas;
 	public Article(Profil author,Template template) {

@@ -11,13 +11,15 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public abstract class Contenu {
+	
 	@XmlTransient
-	Profil author;
+	private Profil author;
 	@XmlTransient
-	EtatPublication  etat;
-	Date dateCreation;
-	Date datePublication;
-	String version;
+	private EtatPublication  etat;
+	private Date dateCreation;
+	private Date datePublication;
+	private String version;
+	
 	
 	public Contenu() {
 		super();
