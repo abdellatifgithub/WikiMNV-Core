@@ -7,6 +7,7 @@ import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.persistance.CrudService;
 import fr.cap.wikimnv.core.persistance.CrudService_Service;
 import fr.cap.wikimnv.core.persistance.MNVException_Exception;
+import fr.cap.wikimnv.core.persistance.cli.PersistanceCli;
 import fr.cap.wikimnv.core.pojo.Commentaire;
 import fr.cap.wikimnv.core.pojo.EtatPublication;
 import fr.cap.wikimnv.core.pojo.TypeStructure;
@@ -14,7 +15,7 @@ import fr.cap.wikimnv.core.structure.service.IServiceCommentaire;
 
 
 public class ServiceCommentaireImpl implements IServiceCommentaire {
-	CrudService crud ;
+	PersistanceCli sCrud ;
 	  
 	
 	public ServiceCommentaireImpl() {		
@@ -29,7 +30,7 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 	
 	public List<Object> lister() throws MNVException, MNVException_Exception {
 		
-		return  crud.lister(TypeStructure.COMMENTAIRE );
+		return  sCrud.lister(TypeStructure.COMMENTAIRE );
 	}
 	
 	/**
@@ -42,7 +43,7 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 
 	
 	public Object lire(Object commentaire) throws MNVException, MNVException_Exception {
-		return crud.lire(commentaire, TypeStructure.COMMENTAIRE) ;
+		return sCrud.lire(commentaire, TypeStructure.COMMENTAIRE) ;
 	}
 	
 	/**
@@ -56,7 +57,7 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 	
 	public Object sauver(Object commentaire) throws MNVException {
 		try {
-			return crud.sauver(commentaire) ;
+			return sCrud.sauver(commentaire) ;
 		} catch (MNVException_Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,7 +76,7 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 
 	
 	public Commentaire supprimer(Commentaire commentaire) throws MNVException, MNVException_Exception {
-		return (Commentaire) crud.supprimer(commentaire) ;
+		return (Commentaire) sCrud.supprimer(commentaire) ;
 	}
 
 	/**
@@ -122,5 +123,14 @@ public class ServiceCommentaireImpl implements IServiceCommentaire {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public PersistanceCli getsCrud() {
+		return sCrud;
+	}
+
+	public void setsCrud(PersistanceCli sCrud) {
+		this.sCrud = sCrud;
+	}
+	
 }
 	

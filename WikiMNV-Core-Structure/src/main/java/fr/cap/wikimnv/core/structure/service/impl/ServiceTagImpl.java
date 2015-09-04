@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.persistance.CrudService;
 import fr.cap.wikimnv.core.persistance.MNVException_Exception;
+import fr.cap.wikimnv.core.persistance.cli.PersistanceCli;
 import fr.cap.wikimnv.core.pojo.Query;
 import fr.cap.wikimnv.core.pojo.Tag;
 import fr.cap.wikimnv.core.pojo.TypeStructure;
@@ -24,30 +25,22 @@ import fr.cap.wikimnv.core.structure.service.IServiceTag;
 public class ServiceTagImpl implements IServiceTag {
 	
 	@Autowired
-	CrudService crud;
-	
-	public CrudService getsCrud() {
-		return crud;
-	}
-
-	public void setsCrud(CrudService sCrud) {
-		this.crud = sCrud;
-	}
+	PersistanceCli sCrud ;
 
 	
 	public List<Object> lister(Class cls) throws MNVException, MNVException_Exception {
-		return crud.lister(TypeStructure.TAG);
+		return sCrud.lister(TypeStructure.TAG);
 	}
 
 	
 	public Object lire(Object obj, Class cls) throws MNVException, MNVException_Exception {
-		return crud.lire(obj, TypeStructure.TAG);
+		return sCrud.lire(obj, TypeStructure.TAG);
 	}
 
 	@Override
 	public Object supprimer(Object obj) throws MNVException {
 		try {
-			return crud.supprimer(obj);
+			return sCrud.supprimer(obj);
 		} catch (MNVException_Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,7 +51,7 @@ public class ServiceTagImpl implements IServiceTag {
 	@Override
 	public Object sauver(Object obj) throws MNVException {
 		try {
-			return crud.sauver(obj);
+			return sCrud.sauver(obj);
 		} catch (MNVException_Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -96,6 +89,18 @@ public class ServiceTagImpl implements IServiceTag {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	public PersistanceCli getsCrud() {
+		return sCrud;
+	}
+
+
+	public void setsCrud(PersistanceCli sCrud) {
+		this.sCrud = sCrud;
+	}
+	
+	
 	
 	
 }

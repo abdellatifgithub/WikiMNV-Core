@@ -1,33 +1,38 @@
 package fr.cap.wikimnv.core.structure.service.impl;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
-import fr.cap.wikimnv.core.persistance.CrudService;
 import fr.cap.wikimnv.core.persistance.MNVException_Exception;
+import fr.cap.wikimnv.core.persistance.cli.PersistanceCli;
 import fr.cap.wikimnv.core.pojo.Article;
 import fr.cap.wikimnv.core.pojo.EtatPublication;
+import fr.cap.wikimnv.core.pojo.Query;
 import fr.cap.wikimnv.core.pojo.TypeStructure;
 import fr.cap.wikimnv.core.structure.service.IServiceArticle;
 
 public class ServiceArticleImpl implements IServiceArticle {
-	CrudService crud;
+	PersistanceCli sCrud ;
+	
 
 	public void changerEtat(EtatPublication etatPublication, Object idArticle) throws MNVException {
 		Article article = null;
 		try {
-			article = (Article) crud.lire(idArticle, TypeStructure.ARTICLE);
+			article = (Article) sCrud.lire(idArticle, TypeStructure.ARTICLE);
 		} catch (MNVException_Exception e) {
-			e.getMessage();
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		article.setEtat(etatPublication);
 	}
 
 	public List<Object> lister(Class cl) throws MNVException {
 		try {
-			return crud.lister(TypeStructure.ARTICLE);
+			return sCrud.lister(TypeStructure.ARTICLE);
 		} catch (MNVException_Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
@@ -41,7 +46,7 @@ public class ServiceArticleImpl implements IServiceArticle {
 	public Object supprimer(Object idArticle) throws MNVException {
 		// TODO Auto-generated method stub
 		try {
-			return crud.supprimer(idArticle);
+			return sCrud.supprimer(idArticle);
 		} catch (MNVException_Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -52,7 +57,7 @@ public class ServiceArticleImpl implements IServiceArticle {
 	public Object sauver(Object idArticle) throws MNVException {
 		// TODO Auto-generated method stub
 		try {
-			return crud.sauver(idArticle);
+			return sCrud.sauver(idArticle);
 		} catch (MNVException_Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -61,17 +66,17 @@ public class ServiceArticleImpl implements IServiceArticle {
 		return idArticle;
 	}
 
-	public CrudService getsCrud() {
-		return crud;
+	public PersistanceCli getsCrud() {
+		return sCrud;
 	}
 
-	public void setsCrud(CrudService sCrud) {
-		this.crud = sCrud;
+	public void setsCrud(PersistanceCli sCrud) {
+		this.sCrud = sCrud;
 	}
 
 	public Object lire(Object idArticle, Class cls) throws MNVException {
 		try {
-			return crud.lire(idArticle, TypeStructure.ARTICLE);
+			return sCrud.lire(idArticle, TypeStructure.ARTICLE);
 		} catch (MNVException_Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -93,6 +98,11 @@ public class ServiceArticleImpl implements IServiceArticle {
 			throws MNVException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public Object rechercher(Query query, Map<String, Object> params) {
+		// return sCrud.faireRequete(query, params) ;
+		return null ;
 	}
 
 }
