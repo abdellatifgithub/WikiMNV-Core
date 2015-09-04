@@ -2,6 +2,7 @@
     <wb-module deploy-name="WikiMNV-Core-Commons">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <property name="context-root" value="WikiMNV-Core-Commons"/>
         <property name="java-output-path" value="/WikiMNV-Core-Commons/target/classes"/>
     </wb-module>
