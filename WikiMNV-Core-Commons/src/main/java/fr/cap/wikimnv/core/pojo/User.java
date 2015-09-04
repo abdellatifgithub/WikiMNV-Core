@@ -1,7 +1,12 @@
 package fr.cap.wikimnv.core.pojo;
 
+import org.mongojack.Id;
+import org.mongojack.ObjectId;
+
 public class User {
 	
+	@Id
+	@ObjectId
 	public boolean bannit;
 
 	
