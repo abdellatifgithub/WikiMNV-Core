@@ -19,4 +19,5 @@ public interface IDAOGenric {
 
 	List<?> executeQuery(String laVraiRequette) throws MNVException;
 
+	
 }
