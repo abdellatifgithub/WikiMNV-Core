@@ -8,10 +8,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Profil {
 	
-	private String id;
-	private String avatar;
-	private double ranking;
-	private User user;
+	public String id;
+	public String avatar;
+	public double ranking;
+	public User user;
 	
 	
 	public User getUser() {

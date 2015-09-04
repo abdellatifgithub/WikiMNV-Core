@@ -8,8 +8,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Meta {
 
-	private String cle;
-	private String valeur;
+	public String cle;
+	public String valeur;
 	
 	
 	public Meta() {

@@ -8,17 +8,22 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import org.mongojack.Id;
+import org.mongojack.ObjectId;
+
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public abstract class Contenu {
-	
+	@Id
+	@ObjectId
+	private String id;
 	@XmlTransient
-	private Profil author;
+	public Profil author;
 	@XmlTransient
-	private EtatPublication  etat;
-	private Date dateCreation;
-	private Date datePublication;
-	private String version;
+	public EtatPublication etat;
+	public Date dateCreation;
+	public Date datePublication;
+	public String version;
 	
 	
 	public Contenu() {
@@ -29,8 +34,8 @@ public abstract class Contenu {
 		super();
 		this.author = author;
 		this.dateCreation = Calendar.getInstance().getTime();
-		this.etat=EtatPublication.BROUILLON;
-		this.version="0.1";
+		this.etat = EtatPublication.BROUILLON;
+		this.version = "0.1";
 	}
 
 	public void setEtat(EtatPublication etat) {
@@ -70,6 +75,12 @@ public abstract class Contenu {
 
 	public void setVersion(String version) {
 		this.version = version;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	
 }
