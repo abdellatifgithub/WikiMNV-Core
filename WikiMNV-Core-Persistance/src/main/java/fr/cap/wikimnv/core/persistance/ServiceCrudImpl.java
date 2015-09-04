@@ -9,6 +9,7 @@ import fr.cap.wikimnv.core.pojo.Query;
 import fr.cap.wikimnv.core.pojo.TypeStructure;
 
 public class ServiceCrudImpl implements IServiceCRUD {
+	
 	DaoMongoDB dao = new DaoMongoDB();
 	
 	//CONSTRUCTEURS

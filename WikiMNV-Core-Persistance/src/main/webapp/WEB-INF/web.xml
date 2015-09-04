@@ -4,9 +4,9 @@
   <display-name>wiki core persistence</display-name>
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <!--  mettre a jour le application context dans le classpath ou pas ?!? -->
         <param-value>classpath:applicationContext.xml</param-value>       
     </context-param>
+    
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -19,7 +19,7 @@
  
     <servlet-mapping>
         <servlet-name>cxf</servlet-name>
-        <url-pattern>/ws/*</url-pattern>
+        <url-pattern>/webservices/*</url-pattern>
     </servlet-mapping>
  
     <session-config>
