@@ -1,5 +1,6 @@
 package fr.cap.wikimnv.core.persistance.domain.dao.impl;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,13 +70,18 @@ public class DaoMongoDB implements IDAOGenric {
 		String nomCollection = cls.getSimpleName().toLowerCase() + 's';
 		JacksonDBCollection maJacksonCollection = declaredCollections.get(nomCollection);
 
+
 		DBCursor cursor = maJacksonCollection.find();
+
+		System.out.println(cursor.count());
 		
 		//TODO: ne marche pas...
+		/*
 		for (Object o : cursor)
 		{
 			System.out.println(o);
 		}
+		*/
 		
 		return null;
 	}
