@@ -17,7 +17,14 @@ public class ServiceCrudImpl implements IServiceCRUD {
 	
 	
 	public Set<?> lister(TypeStructure type) throws MNVException {
-		return dao.getAll(Class.forName(type.getClasse()));
+		try {
+			return dao.getAll(Class.forName(type.getClassEffectiveName()));
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 	public Object supprimer(Object obj)  throws MNVException {

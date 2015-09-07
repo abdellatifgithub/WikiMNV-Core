@@ -19,10 +19,12 @@ public class DaoMongoDBTest {
 //		fail("Not yet implemented");
 //	}
 //
-//	@Test
-//	public void testGetAll() {
-//		fail("Not yet implemented");
-//	}
+	@Test
+	public void testGetAll() throws MNVException {
+		DaoMongoDB mongo = new DaoMongoDB();
+		
+		mongo.getAll(Article.class);
+	}
 //
 //	@Test
 //	public void testGet() {

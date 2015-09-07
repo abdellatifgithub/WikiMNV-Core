@@ -8,19 +8,16 @@ public enum TypeStructure {
 	TEMPLATE("Template"), 
 	SIGNALEMENT("Signalement");
 
-	private String classe;
+	private String classEffectiveName;
 	
-	private TypeStructure(String classe) {
-		this.setClasse(classe);
+	private TypeStructure(String classEffectiveName) {
+		this.classEffectiveName = classEffectiveName;
 	}
 
-	public String getClasse() {
-		return "fr.cap.wikimnv.core.pojo."+classe;
+	public String getClassEffectiveName() {
+		return "fr.cap.wikimnv.core.pojo."+classEffectiveName;
 	}
 
-	private void setClasse(String classe) {
-		this.classe = classe;
-	}
 	
 	
 	

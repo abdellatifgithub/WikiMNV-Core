@@ -21,6 +21,7 @@ import fr.cap.wikimnv.core.pojo.Profil;
 import fr.cap.wikimnv.core.pojo.Signalement;
 import fr.cap.wikimnv.core.pojo.Tag;
 import fr.cap.wikimnv.core.pojo.Template;
+import fr.cap.wikimnv.core.pojo.TypeRecherche;
 import fr.cap.wikimnv.core.pojo.TypeStructure;
 
 public class DaoMongoDB implements IDAOGenric {
@@ -44,14 +45,14 @@ public class DaoMongoDB implements IDAOGenric {
 		database = mongo.getDB("wikimnv");
 		
 		
-		for (Class c : new Class[]{Article.class,
-				Template.class,
-				Tag.class,
-				Profil.class,
-				Signalement.class
-				})
+		for (TypeStructure c : TypeStructure.values() )
 		{
-			collectionFactory(c);
+			try {
+				collectionFactory(Class.forName(c.getClassEffectiveName()));
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 
@@ -70,6 +71,7 @@ public class DaoMongoDB implements IDAOGenric {
 
 		DBCursor cursor = maJacksonCollection.find();
 		
+		//TODO: ne marche pas...
 		for (Object o : cursor)
 		{
 			System.out.println(o);
