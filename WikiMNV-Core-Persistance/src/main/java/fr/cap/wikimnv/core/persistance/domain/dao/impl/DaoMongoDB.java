@@ -67,6 +67,7 @@ public class DaoMongoDB implements IDAOGenric {
 		declaredCollections.put(nomCollection, maJacksonCollection);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Set<?> getAll(Class cls) throws MNVException {
 		String nomCollection = cls.getSimpleName().toLowerCase() + 's';
 		JacksonDBCollection maJacksonCollection = declaredCollections.get(nomCollection);
@@ -76,15 +77,15 @@ public class DaoMongoDB implements IDAOGenric {
 
 		//System.out.println(cursor.count());
 		
-		Set<Object> set = new HashSet<Object>();
+		Set returnSet = new HashSet();
 		
 		for (Object o : cursor)
 		{
 			System.out.println(cls.cast(o));
-			set.add(cls.cast(o));
+			returnSet.add(cls.cast(o));
 		}
 		
-		return set;
+		return returnSet;
 	}
 
 	public Object get(Object obj, TypeStructure cls) throws MNVException {
