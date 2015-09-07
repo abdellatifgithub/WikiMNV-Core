@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.mongojack.DBCursor;
 import org.mongojack.JacksonDBCollection;
 
 import com.mongodb.DB;
@@ -63,11 +64,17 @@ public class DaoMongoDB implements IDAOGenric {
 		declaredCollections.put(nomCollection, maJacksonCollection);
 	}
 
-	public Set<?> getAll(TypeStructure cls) throws MNVException {
-		String nomCollection = obj.getClass().getSimpleName().toLowerCase() + 's';
+	public Set<?> getAll(Class cls) throws MNVException {
+		String nomCollection = cls.getSimpleName().toLowerCase() + 's';
 		JacksonDBCollection maJacksonCollection = declaredCollections.get(nomCollection);
 
-		maJacksonCollection.find();
+		DBCursor cursor = maJacksonCollection.find();
+		
+		for (Object o : cursor)
+		{
+			System.out.println(o);
+		}
+		
 		return null;
 	}
 
@@ -99,7 +106,7 @@ public class DaoMongoDB implements IDAOGenric {
 
 		return null;
 	}
-	
+
 
 	
 
