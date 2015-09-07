@@ -18,6 +18,7 @@
  -->
 
 	<bean id="sLogger" class="fr.cap.wikimnv.logger.LoggerMNV" scope="session" />
+	
 	<aop:config>
 		<aop:aspect id="sLoggerAspect" ref="sLogger">
 			<aop:pointcut id="perfLogger"
@@ -31,9 +32,5 @@
 	</jaxws:server>
 	
 	<bean id="ServicePersistance" class="fr.cap.wikimnv.core.persistance.ServiceCrudImpl" /> 
-	
-	
 		
-	
-	
 </beans>

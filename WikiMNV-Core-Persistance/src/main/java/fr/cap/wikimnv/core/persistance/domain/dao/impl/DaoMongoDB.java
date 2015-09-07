@@ -42,25 +42,18 @@ public class DaoMongoDB implements IDAOGenric {
 		mongo = new MongoClient();
 		
 		declaredCollections = new HashMap<String, JacksonDBCollection>();
-		
-		
-		
-		
+				
 		database = mongo.getDB("wikimnv");
-		
 		
 		for (TypeStructure c : TypeStructure.values() )
 		{
 			try {
 				collectionFactory(Class.forName(c.getClassEffectiveName()));
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-		
-
-	}
+		 }
+	  }
 
 	private void collectionFactory(Class c) {
 		String nomCollection = c.getSimpleName().toLowerCase() + 's';
@@ -90,6 +83,7 @@ public class DaoMongoDB implements IDAOGenric {
 		return returnSet;
 	}
 
+	
 	public Object get(Object obj, TypeStructure cls) throws MNVException {
 		return null;
 	}

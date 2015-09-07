@@ -34,8 +34,7 @@ public class ServiceCrudImpl implements IServiceCRUD {
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		}		
 		return null;
 	}
 
@@ -43,15 +42,13 @@ public class ServiceCrudImpl implements IServiceCRUD {
 		return dao.delete(obj);
 	}
 
-	public Object sauver(Object obj) throws MNVException {
-		
+	public Object sauver(Object obj) throws MNVException {		
 		return dao.saveOrUpdate(obj);
 	}
 	
 	public Object lire(Object obj, TypeStructure type) throws MNVException {
 		return dao.get(obj, type);
 	}
-
 
 	public List<?> faireRequete(Query query, List<Meta> params)  throws MNVException {
 		String vraieRequete = query.getValue();
@@ -62,7 +59,5 @@ public class ServiceCrudImpl implements IServiceCRUD {
 	}
 
 	
-
-
 
 }
