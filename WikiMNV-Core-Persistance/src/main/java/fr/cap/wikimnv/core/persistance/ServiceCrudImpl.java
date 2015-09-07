@@ -25,6 +25,7 @@ public class ServiceCrudImpl implements IServiceCRUD {
 	}
 
 	public Object sauver(Object obj) throws MNVException {
+		
 		return dao.saveOrUpdate(obj);
 	}
 	

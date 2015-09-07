@@ -4,7 +4,6 @@
 
 	<groupId>WikiMNV-Core-Admin</groupId>
 	<artifactId>WikiMNV-Core-Admin</artifactId>
-	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>WikiMNV-Core-Admin Maven Webapp</name>
 	<url>http://maven.apache.org</url>

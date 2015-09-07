@@ -1,7 +1,9 @@
 package fr.cap.wikimnv.core.persistance.domain.dao.impl;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.mongojack.JacksonDBCollection;
@@ -20,21 +22,37 @@ import fr.cap.wikimnv.core.pojo.TypeStructure;
 
 public class DaoMongoDB implements IDAOGenric {
 
-	private static DB database;
-	private static MongoClient mongo;
+	private DB database;
+	private MongoClient mongo;
+	//Map regroupant ttes les collections
+	private Map<String,JacksonDBCollection> declaredCollections; 
 
-	private static DBCollection articleCollection;
-	private static JacksonDBCollection<Article, String> articleCollectionJackson;
+	private DBCollection articleCollection = null;
+	private JacksonDBCollection<Article, String> articleCollectionJackson;
 
 	@SuppressWarnings("deprecation")
 	public DaoMongoDB() {
 		
 		mongo = new MongoClient();
+		
+		declaredCollections = new HashMap<String, JacksonDBCollection>();
+		
 		database = mongo.getDB("wikimnv");
-		 
+		 //Collection de contenus (articles + commentaires)
 		articleCollection = database.getCollection("contenus");
 		articleCollectionJackson = JacksonDBCollection.wrap(articleCollection, Article.class, String.class);
-		//articleCollectionJackson.ensureIndex(new BasicDBObject(« email », « 1″), new BasicDBObject(« unique »,« true »));
+		//TODO Collection de templates		
+		
+		//TODO Collection de tags		
+		
+		//TODO Collection de profil		
+		
+		//TODO Collection de signalements
+		
+		
+		
+		
+
 
 	}
 
@@ -53,21 +71,13 @@ public class DaoMongoDB implements IDAOGenric {
 	}
 
 	public Object saveOrUpdate(Object obj) throws MNVException {
-		Profil author = null;
-		Template template = null;
-		Article a = new Article(author, template);
-		a.ajouterAttributDuContenu("promo", "Blagueurs");
-		a.ajouterAttributDuContenu("promo1", "Blagueurs1");
-		a.ajouterAttributDuContenu("promo2", "Blagueurs2");
-		a.ajouterAttributDuContenu("promo3", "Blagueurs3");
-		a.ajouterAttributDuContenu("promo4", "Blagueurs4");
-		a.ajouterAttributDuContenu("promo5", "Blagueurs5");
-		a.ajouterAttributDuContenu("promo6", "Blagueurs6");
-		a.ajouterAttributDuContenu("promo7", "Blagueurs7");
-		a.setDateCreation(new Date());
-		a.setEtat(EtatPublication.PUBLIE);
-		a.setVersion("0.1.22.2.3.4486");
-		articleCollectionJackson.insert(a);
+		
+		if( obj instanceof Article ){
+			articleCollectionJackson.insert((Article)obj);
+		}
+		
+	
+
 		return null;
 	}
 
@@ -80,5 +90,8 @@ public class DaoMongoDB implements IDAOGenric {
 
 		return null;
 	}
+	
+
+	
 
 }
