@@ -18,6 +18,7 @@ public class Commentaire extends Contenu {
 	private Template template;
 	private List<Meta> metas;
 	
+	public Commentaire() {}
 	
 	public Commentaire(Profil author,Template template) {
 		super(author);

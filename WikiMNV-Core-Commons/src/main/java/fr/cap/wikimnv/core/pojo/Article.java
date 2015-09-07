@@ -20,6 +20,8 @@ public class Article extends Contenu {
 	
 	public List<Commentaire> commentaires;
 	
+	public Article() {}
+	
 	public Article(Profil author,Template template) {
 		super(author);
 		this.template=template;

@@ -2,6 +2,7 @@ package fr.cap.wikimnv.core.persistance.domain.dao.impl;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -73,17 +74,17 @@ public class DaoMongoDB implements IDAOGenric {
 
 		DBCursor cursor = maJacksonCollection.find();
 
-		System.out.println(cursor.count());
+		//System.out.println(cursor.count());
 		
-		//TODO: ne marche pas...
-		/*
+		Set<Object> set = new HashSet<Object>();
+		
 		for (Object o : cursor)
 		{
-			System.out.println(o);
+			System.out.println(cls.cast(o));
+			set.add(cls.cast(o));
 		}
-		*/
 		
-		return null;
+		return set;
 	}
 
 	public Object get(Object obj, TypeStructure cls) throws MNVException {
