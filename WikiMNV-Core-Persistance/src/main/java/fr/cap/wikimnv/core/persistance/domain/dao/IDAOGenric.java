@@ -11,9 +11,9 @@ public interface IDAOGenric {
 
     Set<?> getAll(Class cls) throws MNVException;
 
-	Object get(Object obj, TypeStructure cls) throws MNVException;
+	Object get(Object id, Class cls) throws MNVException;
 
-	Object delete(Object obj) throws MNVException;
+	Object delete(Object id, Class cls) throws MNVException;
 
 	Object saveOrUpdate(Object obj) throws MNVException;
 

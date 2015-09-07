@@ -10,6 +10,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import org.mongojack.Id;
+import org.mongojack.ObjectId;
+
+
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Article extends Contenu {     
@@ -20,12 +24,11 @@ public class Article extends Contenu {
 	
 	public List<Commentaire> commentaires;
 	
-	public Article() {}
-	
+	public Article() {}	
 	public Article(Profil author,Template template) {
 		super(author);
-		this.template=template;
-		metas=new ArrayList<Meta>();
+		this.template = template;
+		metas = new ArrayList<Meta>();
 	}
 	public void ajouterAttributDuContenu(String metaAttribut, String valeurAttribut) {
 		metas.add(new Meta(metaAttribut, valeurAttribut));

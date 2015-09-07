@@ -36,13 +36,11 @@ public class DaoMongoDB implements IDAOGenric {
 	private Map<String,JacksonDBCollection> declaredCollections; 
 
 
-	@SuppressWarnings({ "deprecation", "unchecked" })
+	
 	public DaoMongoDB() {
 		
-		mongo = new MongoClient();
-		
-		declaredCollections = new HashMap<String, JacksonDBCollection>();
-				
+		mongo = new MongoClient();		
+		declaredCollections = new HashMap<String, JacksonDBCollection>();				
 		database = mongo.getDB("wikimnv");
 		
 		for (TypeStructure c : TypeStructure.values() )
@@ -53,7 +51,9 @@ public class DaoMongoDB implements IDAOGenric {
 				e.printStackTrace();
 			}
 		 }
-	  }
+		
+	 }
+	
 
 	private void collectionFactory(Class c) {
 		String nomCollection = c.getSimpleName().toLowerCase() + 's';
@@ -62,15 +62,12 @@ public class DaoMongoDB implements IDAOGenric {
 		declaredCollections.put(nomCollection, maJacksonCollection);
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	
 	public synchronized Set<?> getAll(Class cls) throws MNVException {
 		String nomCollection = cls.getSimpleName().toLowerCase() + 's';
 		JacksonDBCollection maJacksonCollection = declaredCollections.get(nomCollection);
 
-
 		DBCursor cursor = maJacksonCollection.find();
-
-		//System.out.println(cursor.count());
 		
 		Set returnSet = new HashSet();
 		
@@ -84,34 +81,34 @@ public class DaoMongoDB implements IDAOGenric {
 	}
 
 	
-	public Object get(Object obj, TypeStructure cls) throws MNVException {
-		return null;
-	}
-
-	public Object delete(Object obj) throws MNVException {
-
-		return null;
-	}
-
 	public Object saveOrUpdate(Object obj) throws MNVException {
 
 		String nomCollection = obj.getClass().getSimpleName().toLowerCase() + 's';
 		JacksonDBCollection maJacksonCollection = declaredCollections.get(nomCollection);
 		maJacksonCollection.insert(obj);
 	
-
+		return null;
+	}
+	
+	public Object get(Object id, Class cls) throws MNVException {
+		
 		return null;
 	}
 
-	/**
-	 * redefinition de la methode executeQuery en provenance de l'interface
-	 * IDAOGeneric cette methode permettra de faire des requetes paramatrées
-	 * (attribut query)
-	 */
+	
+	public Object delete(Object id, Class cls) throws MNVException {
+		
+		return null;
+	}
+
+	
 	public List<?> executeQuery(String laVraiRequette) throws MNVException {
 
 		return null;
 	}
+
+	
+	
 
 
 	

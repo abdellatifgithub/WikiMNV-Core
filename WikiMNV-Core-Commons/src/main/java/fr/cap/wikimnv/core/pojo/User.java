@@ -5,8 +5,7 @@ import org.mongojack.ObjectId;
 
 public class User {
 	
-	@Id
-	@ObjectId
+	
 	public boolean bannit;
 
 	
