@@ -9,7 +9,7 @@ import fr.cap.wikimnv.core.pojo.TypeStructure;
 
 public interface IDAOGenric {
 
-	Set<?> getAll(Class cls) throws MNVException;
+    Set<?> getAll(Class cls) throws MNVException;
 
 	Object get(Object obj, TypeStructure cls) throws MNVException;
 

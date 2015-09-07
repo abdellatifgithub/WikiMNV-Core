@@ -9,6 +9,7 @@ import java.util.Set;
 
 import org.mongojack.DBCursor;
 import org.mongojack.JacksonDBCollection;
+import org.springframework.stereotype.Component;
 
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
@@ -26,6 +27,7 @@ import fr.cap.wikimnv.core.pojo.Template;
 import fr.cap.wikimnv.core.pojo.TypeRecherche;
 import fr.cap.wikimnv.core.pojo.TypeStructure;
 
+@Component
 public class DaoMongoDB implements IDAOGenric {
 
 	private DB database;
@@ -68,7 +70,7 @@ public class DaoMongoDB implements IDAOGenric {
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public Set<?> getAll(Class cls) throws MNVException {
+	public synchronized Set<?> getAll(Class cls) throws MNVException {
 		String nomCollection = cls.getSimpleName().toLowerCase() + 's';
 		JacksonDBCollection maJacksonCollection = declaredCollections.get(nomCollection);
 

@@ -3,15 +3,27 @@ package fr.cap.wikimnv.core.persistance;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import fr.cap.wikimnv.core.commons.exception.MNVException;
+import fr.cap.wikimnv.core.persistance.domain.dao.IDAOGenric;
 import fr.cap.wikimnv.core.persistance.domain.dao.impl.DaoMongoDB;
 import fr.cap.wikimnv.core.pojo.Query;
 import fr.cap.wikimnv.core.pojo.TypeStructure;
 
 public class ServiceCrudImpl implements IServiceCRUD {
 	
-	DaoMongoDB dao = new DaoMongoDB();
-	
+	@Autowired
+	IDAOGenric dao;
+
+	public IDAOGenric getDao() {
+		return dao;
+	}
+	public void setDao(IDAOGenric dao) {
+		this.dao = dao;
+	}
+
+
 	//CONSTRUCTEURS
 	public ServiceCrudImpl() {}
 	

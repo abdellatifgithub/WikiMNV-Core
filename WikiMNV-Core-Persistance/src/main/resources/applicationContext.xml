@@ -29,5 +29,11 @@
 	<jaxws:server serviceClass="fr.cap.wikimnv.core.persistance.IServiceCRUD"
 		address="/crudService" serviceBean="#ServicePersistance">
 	</jaxws:server>
-	<bean id="ServicePersistance" class="fr.cap.wikimnv.core.persistance.ServiceCrudImpl" />
+	
+	<bean id="ServicePersistance" class="fr.cap.wikimnv.core.persistance.ServiceCrudImpl" /> 
+	
+	
+		
+	
+	
 </beans>
