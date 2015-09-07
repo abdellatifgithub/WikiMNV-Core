@@ -9,10 +9,12 @@ import org.mongojack.JacksonDBCollection;
 
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
+import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.persistance.domain.dao.IDAOGenric;
+import fr.cap.wikimnv.core.pojo.Article;
 import fr.cap.wikimnv.core.pojo.Contenu;
 import fr.cap.wikimnv.core.pojo.Profil;
 import fr.cap.wikimnv.core.pojo.Signalement;
@@ -41,23 +43,31 @@ public class DaoMongoDB implements IDAOGenric {
 		database = mongo.getDB("wikimnv");
 		
 		
-		for (Class c : new Class[]{Contenu.class, Template.class, Tag.class, Profil.class, Signalement.class})
+		for (Class c : new Class[]{Article.class,
+				Template.class,
+				Tag.class,
+				Profil.class,
+				Signalement.class
+				})
 		{
-			String nomCollection = c.getSimpleName().toLowerCase() + 's';
-			DBCollection maCollection = database.getCollection(nomCollection); 
-			JacksonDBCollection<Object, String> maJacksonCollection = JacksonDBCollection.wrap(maCollection, c, String.class);
-			declaredCollections.put(nomCollection, maJacksonCollection);
+			collectionFactory(c);
 		}
 		
-		
-		
-		
-
 
 	}
 
-	public Set<?> getAll(TypeStructure cls) throws MNVException {
+	private void collectionFactory(Class c) {
+		String nomCollection = c.getSimpleName().toLowerCase() + 's';
+		DBCollection maCollection = database.getCollection(nomCollection); 
+		JacksonDBCollection<Object, String> maJacksonCollection = JacksonDBCollection.wrap(maCollection, c, String.class);
+		declaredCollections.put(nomCollection, maJacksonCollection);
+	}
 
+	public Set<?> getAll(TypeStructure cls) throws MNVException {
+		String nomCollection = obj.getClass().getSimpleName().toLowerCase() + 's';
+		JacksonDBCollection maJacksonCollection = declaredCollections.get(nomCollection);
+
+		maJacksonCollection.find();
 		return null;
 	}
 
@@ -71,12 +81,7 @@ public class DaoMongoDB implements IDAOGenric {
 	}
 
 	public Object saveOrUpdate(Object obj) throws MNVException {
-		
-		/*
-		if( obj instanceof Article ){
-			articleCollectionJackson.insert((Article)obj);
-		}
-		*/
+
 		String nomCollection = obj.getClass().getSimpleName().toLowerCase() + 's';
 		JacksonDBCollection maJacksonCollection = declaredCollections.get(nomCollection);
 		maJacksonCollection.insert(obj);

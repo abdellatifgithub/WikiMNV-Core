@@ -17,7 +17,7 @@ public class ServiceCrudImpl implements IServiceCRUD {
 	
 	
 	public Set<?> lister(TypeStructure type) throws MNVException {
-		return dao.getAll(type);
+		return dao.getAll(Class.forName(type.getClasse()));
 	}
 
 	public Object supprimer(Object obj)  throws MNVException {

@@ -17,6 +17,9 @@ public class Article extends Contenu {
 	public Template template;
 	
 	public List<Meta> metas;
+	
+	public List<Commentaire> commentaires;
+	
 	public Article(Profil author,Template template) {
 		super(author);
 		this.template=template;
