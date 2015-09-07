@@ -1,6 +1,5 @@
 package fr.cap.wikimnv.core.persistance.domain.dao.impl;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,9 +13,10 @@ import com.mongodb.MongoClient;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
 import fr.cap.wikimnv.core.persistance.domain.dao.IDAOGenric;
-import fr.cap.wikimnv.core.pojo.Article;
-import fr.cap.wikimnv.core.pojo.EtatPublication;
+import fr.cap.wikimnv.core.pojo.Contenu;
 import fr.cap.wikimnv.core.pojo.Profil;
+import fr.cap.wikimnv.core.pojo.Signalement;
+import fr.cap.wikimnv.core.pojo.Tag;
 import fr.cap.wikimnv.core.pojo.Template;
 import fr.cap.wikimnv.core.pojo.TypeStructure;
 
@@ -27,27 +27,27 @@ public class DaoMongoDB implements IDAOGenric {
 	//Map regroupant ttes les collections
 	private Map<String,JacksonDBCollection> declaredCollections; 
 
-	private DBCollection articleCollection = null;
-	private JacksonDBCollection<Article, String> articleCollectionJackson;
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings({ "deprecation", "unchecked" })
 	public DaoMongoDB() {
 		
 		mongo = new MongoClient();
 		
 		declaredCollections = new HashMap<String, JacksonDBCollection>();
 		
+		
+		
+		
 		database = mongo.getDB("wikimnv");
-		 //Collection de contenus (articles + commentaires)
-		articleCollection = database.getCollection("contenus");
-		articleCollectionJackson = JacksonDBCollection.wrap(articleCollection, Article.class, String.class);
-		//TODO Collection de templates		
 		
-		//TODO Collection de tags		
 		
-		//TODO Collection de profil		
-		
-		//TODO Collection de signalements
+		for (Class c : new Class[]{Contenu.class, Template.class, Tag.class, Profil.class, Signalement.class})
+		{
+			String nomCollection = c.getSimpleName().toLowerCase() + 's';
+			DBCollection maCollection = database.getCollection(nomCollection); 
+			JacksonDBCollection<Object, String> maJacksonCollection = JacksonDBCollection.wrap(maCollection, c, String.class);
+			declaredCollections.put(nomCollection, maJacksonCollection);
+		}
 		
 		
 		
@@ -72,10 +72,14 @@ public class DaoMongoDB implements IDAOGenric {
 
 	public Object saveOrUpdate(Object obj) throws MNVException {
 		
+		/*
 		if( obj instanceof Article ){
 			articleCollectionJackson.insert((Article)obj);
 		}
-		
+		*/
+		String nomCollection = obj.getClass().getSimpleName().toLowerCase() + 's';
+		JacksonDBCollection maJacksonCollection = declaredCollections.get(nomCollection);
+		maJacksonCollection.insert(obj);
 	
 
 		return null;
