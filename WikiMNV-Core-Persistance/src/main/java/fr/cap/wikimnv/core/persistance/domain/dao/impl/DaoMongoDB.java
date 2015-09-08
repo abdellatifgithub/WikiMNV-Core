@@ -9,6 +9,7 @@ import java.util.Set;
 
 import org.mongojack.DBCursor;
 import org.mongojack.JacksonDBCollection;
+import org.springframework.core.SpringProperties;
 import org.springframework.stereotype.Component;
 
 import com.mongodb.DB;
@@ -17,6 +18,7 @@ import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
+import fr.cap.wikimnv.core.persistance.SpringPropertiesUtil;
 import fr.cap.wikimnv.core.persistance.domain.dao.IDAOGenric;
 import fr.cap.wikimnv.core.pojo.Article;
 import fr.cap.wikimnv.core.pojo.Contenu;
@@ -35,8 +37,17 @@ public class DaoMongoDB implements IDAOGenric {
 	//Map regroupant ttes les collections
 	private Map<String,JacksonDBCollection> declaredCollections; 
 
+	private SpringPropertiesUtil placeholderConfigMM;
 
 	
+	public SpringPropertiesUtil getPlaceholderConfigMM() {
+		return placeholderConfigMM;
+	}
+	public void setPlaceholderConfigMM(SpringPropertiesUtil placeholderConfigMM) {
+		this.placeholderConfigMM = placeholderConfigMM;
+	}
+
+
 	@SuppressWarnings("deprecation")
 	public DaoMongoDB() {
 		
@@ -44,7 +55,7 @@ public class DaoMongoDB implements IDAOGenric {
 		declaredCollections = new HashMap<String, JacksonDBCollection>();				
 		database = mongo.getDB("wikimnv");
 		
-		for (TypeStructure c : TypeStructure.values() )
+		for (TypeStructure c : placeholderConfigMM.getProperty(name).values() )
 		{
 			try {
 				collectionFactory(Class.forName(c.getClassEffectiveName()));
