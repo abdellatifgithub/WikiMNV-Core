@@ -60,7 +60,7 @@ public class DaoMongoDB implements IDAOGenric {
 		for (String c : array)
 		{
 			try {
-				collectionFactory(Class.forName(c + placeholderConfigMM.getProperty("wikimnv.package")));
+				collectionFactory(Class.forName(placeholderConfigMM.getProperty("wikimnv.package") + c));
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
