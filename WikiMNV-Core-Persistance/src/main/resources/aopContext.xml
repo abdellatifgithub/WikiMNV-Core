@@ -17,7 +17,7 @@
 
 
 	
-	<bean id="sLogger" class="${wikimnv.logger.class}" scope="session" />
+	<bean id="sLogger" class="${wikimnv.logger.class}"  />
 	
 	<aop:config>
 		<aop:aspect id="sLoggerAspect" ref="sLogger">

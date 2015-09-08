@@ -13,7 +13,6 @@ import fr.cap.wikimnv.core.pojo.TypeStructure;
 
 public class ServiceCrudImpl implements IServiceCRUD {
 	
-	@Autowired
 	IDAOGenric dao;
 
 	public IDAOGenric getDao() {
@@ -38,7 +37,7 @@ public class ServiceCrudImpl implements IServiceCRUD {
 	}
 
 
-	public Object sauver(Object obj) throws MNVException {		
+	public Object sauver(Object obj) throws MNVException {	
 		return dao.saveOrUpdate(obj);
 	}
 	

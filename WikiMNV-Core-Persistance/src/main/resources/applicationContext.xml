@@ -19,10 +19,13 @@
 	<context:property-placeholder location="classpath:wikimnv.properties" />
 	
 	<!-- le logger en mode aop -->
-	<import resource="aopContext.xml"/>
-
+	<!--  import resource="aopContext.xml"/ -->
+	
+	<!-- les daos -->
+	<import resource="daoContext.xml"/>
+	
 	<!-- les services -->
-	<import resource="webServiceContext.xml"/>
+	<import resource="serviceContext.xml"/>
 	
 	
 	

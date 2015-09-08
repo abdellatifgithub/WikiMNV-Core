@@ -27,7 +27,7 @@ import fr.cap.wikimnv.core.pojo.Template;
 import fr.cap.wikimnv.core.pojo.TypeRecherche;
 import fr.cap.wikimnv.core.pojo.TypeStructure;
 
-@Component
+
 public class DaoMongoDB implements IDAOGenric {
 
 	private DB database;
@@ -82,7 +82,6 @@ public class DaoMongoDB implements IDAOGenric {
 
 	
 	public Object saveOrUpdate(Object obj) throws MNVException {
-
 		String nomCollection = obj.getClass().getSimpleName().toLowerCase() + 's';
 		JacksonDBCollection maJacksonCollection = declaredCollections.get(nomCollection);
 		maJacksonCollection.insert(obj);
