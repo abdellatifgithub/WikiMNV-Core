@@ -32,23 +32,17 @@ public class ServiceCrudImpl implements IServiceCRUD {
 		try {
 			return dao.getAll(Class.forName(type.getClassEffectiveName()));
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
 		return null;
 	}
 
-	public Object supprimer(Object obj)  throws MNVException {
-		return dao.delete(obj);
-	}
 
 	public Object sauver(Object obj) throws MNVException {		
 		return dao.saveOrUpdate(obj);
 	}
 	
-	public Object lire(Object obj, TypeStructure type) throws MNVException {
-		return dao.get(obj, type);
-	}
+	
 
 	public List<?> faireRequete(Query query, List<Meta> params)  throws MNVException {
 		String vraieRequete = query.getValue();
@@ -56,6 +50,16 @@ public class ServiceCrudImpl implements IServiceCRUD {
 			vraieRequete.replaceAll(":" + meta.getKey(), (String)meta.getValue());
 		}
 		return dao.executeQuery(vraieRequete);
+	}
+	@Override
+	public Object lire(Object obj, Class cls) throws MNVException {
+		
+		return dao.get(obj, cls);
+	}
+	@Override
+	public Object supprimer(Object obj, Class cls) throws MNVException {
+		
+		return dao.delete(obj, cls);
 	}
 
 	
