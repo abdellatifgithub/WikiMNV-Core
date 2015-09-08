@@ -21,7 +21,8 @@
 	<!-- le logger en mode aop -->
 	<import resource="aopContext.xml"/>
 
-	 
+	<!-- les services -->
+	<import resource="webServiceContext.xml"/>
 	
 	
 	

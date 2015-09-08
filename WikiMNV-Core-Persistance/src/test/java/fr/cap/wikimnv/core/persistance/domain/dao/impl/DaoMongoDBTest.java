@@ -43,7 +43,7 @@ public class DaoMongoDBTest {
 		Profil author = null;
 		Template template = null;
 		Article a = new Article(author, template);
-		a.ajouterAttributDuContenu("promo", "Blagueurs");
+	
 		a.ajouterAttributDuContenu("promo1", "Blagueurs1");
 		a.ajouterAttributDuContenu("promo2", "Blagueurs2");
 		a.ajouterAttributDuContenu("promo3", "Blagueurs3");
@@ -53,7 +53,7 @@ public class DaoMongoDBTest {
 		a.ajouterAttributDuContenu("promo7", "Blagueurs7");
 		a.setDateCreation(new Date());
 		a.setEtat(EtatPublication.PUBLIE);
-		a.setVersion("0.1.22.2.3.4486");
+		a.setVersion("0.1.4444");
 		
 		
 		mongo.saveOrUpdate(a);

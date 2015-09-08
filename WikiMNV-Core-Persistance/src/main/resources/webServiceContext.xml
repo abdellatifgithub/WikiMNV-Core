@@ -17,11 +17,11 @@
 	
 
 	
-	<jaxws:server serviceClass="${wikimnv.servicecrud.interface}"
-		address="${wikimnv.servicecrud.endpoint}" serviceBean="#ServicePersistance">
+	<jaxws:server serviceClass="${wikimnv.service.1.interface}"
+		address="${wikimnv.service.1.endpoint}" serviceBean="#ServicePersistance">
 	</jaxws:server>
 	
-	<bean id="ServicePersistance" class="${wikimnv.servicecrud.implementation}" />
+	<bean id="ServicePersistance" class="${wikimnv.service.1.implementation}" />
 	
 	
 		
