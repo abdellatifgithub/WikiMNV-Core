@@ -16,14 +16,12 @@
             http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 	
 
-	<context:property-placeholder location="classpath:wikimnv.properties" />
 	
-	<!-- le logger en mode aop -->
-	<import resource="aopContext.xml"/>
-
-	 
+	<jaxws:server serviceClass="${wikimnv.servicecrud.interface}"
+		address="${wikimnv.servicecrud.endpoint}" serviceBean="#ServicePersistance">
+	</jaxws:server>
 	
-	
+	<bean id="ServicePersistance" class="${wikimnv.servicecrud.implementation}" />
 	
 	
 		
