@@ -25,4 +25,5 @@
 			<aop:around pointcut-ref="perfLogger" method="logProcess" />
 		</aop:aspect>
 	</aop:config>
+	
 </beans>

@@ -18,6 +18,7 @@
 			
 	
 	<context:property-placeholder location="classpath:foo.properties" />
+	 <import resource="wikimnv.properties"/>
 	
 	
 	<jaxws:server serviceClass=" fr.cap.wikimnv.core.structure.service.IServiceArticle" address="/ServiceArticle" serviceBean="#ServiceArticle"> </jaxws:server>
