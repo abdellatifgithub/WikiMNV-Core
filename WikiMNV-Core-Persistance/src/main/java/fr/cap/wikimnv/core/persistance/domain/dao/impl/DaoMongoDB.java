@@ -55,10 +55,12 @@ public class DaoMongoDB implements IDAOGenric {
 		declaredCollections = new HashMap<String, JacksonDBCollection>();				
 		database = mongo.getDB("wikimnv");
 		
-		for (TypeStructure c : placeholderConfigMM.getProperty(name).values() )
+		String values = placeholderConfigMM.getProperty("wikimnv.type.structure");
+		String[] array = values.split(",");
+		for (String c : array)
 		{
 			try {
-				collectionFactory(Class.forName(c.getClassEffectiveName()));
+				collectionFactory(Class.forName(c + placeholderConfigMM.getProperty("wikimnv.package")));
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
