@@ -37,6 +37,7 @@ public class DaoMongoDB implements IDAOGenric {
 
 
 	
+	@SuppressWarnings("deprecation")
 	public DaoMongoDB() {
 		
 		mongo = new MongoClient();		
@@ -63,6 +64,7 @@ public class DaoMongoDB implements IDAOGenric {
 	}
 
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public synchronized Set<?> getAll(Class cls) throws MNVException {
 		String nomCollection = cls.getSimpleName().toLowerCase() + 's';
 		JacksonDBCollection maJacksonCollection = declaredCollections.get(nomCollection);
@@ -81,6 +83,7 @@ public class DaoMongoDB implements IDAOGenric {
 	}
 
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Object saveOrUpdate(Object obj) throws MNVException {
 
 		String nomCollection = obj.getClass().getSimpleName().toLowerCase() + 's';
@@ -90,13 +93,23 @@ public class DaoMongoDB implements IDAOGenric {
 		return null;
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Object get(Object id, Class cls) throws MNVException {
 		
-		return null;
+		String nomCollection = cls.getSimpleName().toLowerCase() + 's';
+		JacksonDBCollection maJacksonCollection = declaredCollections.get(nomCollection);
+		
+		return cls.cast(maJacksonCollection.findOneById(id));
 	}
 
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Object delete(Object id, Class cls) throws MNVException {
+		
+		String nomCollection = cls.getSimpleName().toLowerCase() + 's';
+		JacksonDBCollection maJacksonCollection = declaredCollections.get(nomCollection);
+		
+		maJacksonCollection.removeById(id);
 		
 		return null;
 	}
