@@ -13,7 +13,7 @@ public interface IDAOGenric {
 
 	Object get(Object id, Class cls) throws MNVException;
 
-	Object delete(Object id, Class cls) throws MNVException;
+	void delete(Object id, Class cls) throws MNVException;
 
 	Object saveOrUpdate(Object obj) throws MNVException;
 

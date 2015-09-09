@@ -3,6 +3,7 @@ package fr.cap.wikimnv.core.persistance;
 import java.util.List;
 import java.util.Set;
 
+import org.mongojack.DBQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
@@ -44,12 +45,14 @@ public class ServiceCrudImpl implements IServiceCRUD {
 	
 
 	public List<?> faireRequete(Query query, List<Meta> params)  throws MNVException {
-		String vraieRequete = query.getValue();
+		org.mongojack.DBQuery.Query vraieRequete = DBQuery.empty();
 		for ( Meta meta : params) {
-			vraieRequete.replaceAll(":" + meta.getKey(), (String)meta.getValue());
+			vraieRequete.greaterThan(meta.getKey(), meta.getValue());
 		}
-		return dao.executeQuery(vraieRequete);
+		return dao.executeQuery(vraieRequete, query.toString());
 	}
+	
+	
 	@Override
 	public Object lire(Object obj, Class cls) throws MNVException {
 		

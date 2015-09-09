@@ -2,7 +2,8 @@ package fr.cap.wikimnv.core.persistance;
 
 public class Meta {
 
-	String key, value;
+	String key;
+	String value;
 
 	public Meta() {
 		super();

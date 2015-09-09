@@ -113,11 +113,9 @@ public class DaoMongoDB implements IDAOGenric {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Object saveOrUpdate(Object obj) throws MNVException {
-		String nomCollection = obj.getClass().getSimpleName().toLowerCase() + 's';
-		JacksonDBCollection maJacksonCollection = declaredCollections.get(nomCollection);
-		maJacksonCollection.insert(obj);
-	
-		return null;
+		String nomCollection = obj.getClass().getSimpleName().toLowerCase().concat("s") ;
+		JacksonDBCollection maJacksonCollection = declaredCollections.get(nomCollection);		
+		return maJacksonCollection.insert(obj).getSavedObject();	
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -131,14 +129,12 @@ public class DaoMongoDB implements IDAOGenric {
 
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Object delete(Object id, Class cls) throws MNVException {
+	public void delete(Object id, Class cls) throws MNVException {
 		
-		String nomCollection = cls.getSimpleName().toLowerCase() + 's';
+		String nomCollection = cls.getSimpleName().toLowerCase().concat("s");
 		JacksonDBCollection maJacksonCollection = declaredCollections.get(nomCollection);
 		
 		maJacksonCollection.removeById(id);
-		
-		return null;
 	}
 
 	
@@ -147,7 +143,7 @@ public class DaoMongoDB implements IDAOGenric {
 	public List<?> executeQuery(Object laVraiRequette, String target)throws MNVException {
 		
 		List list = new ArrayList();
-		DBCursor cursor =  declaredCollections.get(target).find(Query.class.cast(laVraiRequette));
+		DBCursor cursor =  declaredCollections.get(target.concat("s")).find(Query.class.cast(laVraiRequette));
 		for (Object o : cursor)
 		{
 			list.add(o);
