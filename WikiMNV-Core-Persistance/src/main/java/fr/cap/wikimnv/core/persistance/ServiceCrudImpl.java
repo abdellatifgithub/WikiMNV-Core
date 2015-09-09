@@ -47,7 +47,8 @@ public class ServiceCrudImpl implements IServiceCRUD {
 	public List<?> faireRequete(Query query, List<Meta> params)  throws MNVException {
 		org.mongojack.DBQuery.Query vraieRequete = DBQuery.empty();
 		for ( Meta meta : params) {
-			vraieRequete.greaterThan(meta.getKey(), meta.getValue());
+			// un ajout à la vrairequete
+			vraieRequete = vraieRequete.greaterThan(meta.getKey(), meta.getValue());
 		}
 		return dao.executeQuery(vraieRequete, query.toString());
 	}
