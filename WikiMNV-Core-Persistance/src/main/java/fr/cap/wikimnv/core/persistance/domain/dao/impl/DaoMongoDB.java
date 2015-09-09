@@ -49,11 +49,17 @@ public class DaoMongoDB implements IDAOGenric {
 
 
 	@SuppressWarnings("deprecation")
-	public DaoMongoDB() {
+	public DaoMongoDB(SpringPropertiesUtil placeholderConfigMM) {
 		
-		mongo = new MongoClient();		
+		this.placeholderConfigMM = placeholderConfigMM;
+		String ip = placeholderConfigMM.getProperty("wikimnv.dao.host.ip");
+		int port = Integer.parseInt(placeholderConfigMM.getProperty("wikimnv.dao.host.ip"));
+		String bdd = placeholderConfigMM.getProperty("wikimnv.dao.bdd");
+		
+		//mongo = new MongoClient();
+		mongo = new MongoClient(ip, port);
 		declaredCollections = new HashMap<String, JacksonDBCollection>();				
-		database = mongo.getDB("wikimnv");
+		database = mongo.getDB(bdd);
 		
 		String values = placeholderConfigMM.getProperty("wikimnv.type.structure");
 		String[] array = values.split(",");
