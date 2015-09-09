@@ -7,12 +7,21 @@ import java.util.Date;
 import org.junit.Test;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
+import fr.cap.wikimnv.core.persistance.SpringPropertiesUtil;
 import fr.cap.wikimnv.core.pojo.Article;
 import fr.cap.wikimnv.core.pojo.EtatPublication;
 import fr.cap.wikimnv.core.pojo.Profil;
 import fr.cap.wikimnv.core.pojo.Template;
 
 public class DaoMongoDBTest {
+	
+	SpringPropertiesUtil placeholderConfigMM;
+	public SpringPropertiesUtil getPlaceholderConfigMM() {
+		return placeholderConfigMM;
+	}
+	public void setPlaceholderConfigMM(SpringPropertiesUtil placeholderConfigMM) {
+		this.placeholderConfigMM = placeholderConfigMM;
+	}
 
 //	@Test
 //	public void testDaoMongoDB() {
@@ -21,7 +30,7 @@ public class DaoMongoDBTest {
 //
 	@Test
 	public void testGetAll() throws MNVException {
-		DaoMongoDB mongo = new DaoMongoDB();
+		DaoMongoDB mongo = new DaoMongoDB(placeholderConfigMM);
 		
 		mongo.getAll(Article.class);
 	}
@@ -38,7 +47,7 @@ public class DaoMongoDBTest {
 
 	@Test
 	public void testSaveOrUpdate() throws MNVException {
-		DaoMongoDB mongo = new DaoMongoDB();
+		DaoMongoDB mongo = new DaoMongoDB(placeholderConfigMM);
 		
 		Profil author = null;
 		Template template = null;
