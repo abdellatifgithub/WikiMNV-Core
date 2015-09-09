@@ -1,6 +1,7 @@
 package fr.cap.wikimnv.core.persistance.domain.dao.impl;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -8,6 +9,8 @@ import java.util.Map;
 import java.util.Set;
 
 import org.mongojack.DBCursor;
+import org.mongojack.DBQuery;
+import org.mongojack.DBQuery.Query;
 import org.mongojack.JacksonDBCollection;
 import org.springframework.core.SpringProperties;
 import org.springframework.stereotype.Component;
@@ -51,7 +54,9 @@ public class DaoMongoDB implements IDAOGenric {
 	@SuppressWarnings("deprecation")
 	public DaoMongoDB(SpringPropertiesUtil placeholderConfigMM) {
 		
+		
 		this.placeholderConfigMM = placeholderConfigMM;
+		// recuperation des parametres de connexion
 		String ip = placeholderConfigMM.getProperty("wikimnv.dao.host.ip");
 		int port = Integer.parseInt(placeholderConfigMM.getProperty("wikimnv.dao.host.port"));
 		String bdd = placeholderConfigMM.getProperty("wikimnv.dao.bdd");
@@ -72,8 +77,7 @@ public class DaoMongoDB implements IDAOGenric {
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-		 }
-		
+		 }		
 	 }
 	
 
@@ -84,6 +88,9 @@ public class DaoMongoDB implements IDAOGenric {
 		declaredCollections.put(nomCollection, maJacksonCollection);
 	}
 
+	
+	
+	
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public synchronized Set<?> getAll(Class cls) throws MNVException {
@@ -135,9 +142,19 @@ public class DaoMongoDB implements IDAOGenric {
 	}
 
 	
-	public List<?> executeQuery(String laVraiRequette) throws MNVException {
-
-		return null;
+	
+	
+	public List<?> executeQuery(Object laVraiRequette, String target)throws MNVException {
+		
+		List list = new ArrayList();
+		DBCursor cursor =  declaredCollections.get(target).find(Query.class.cast(laVraiRequette));
+		for (Object o : cursor)
+		{
+			list.add(o);
+		}
+		
+		return list;
+		
 	}
 
 

@@ -17,6 +17,6 @@ public interface IDAOGenric {
 
 	Object saveOrUpdate(Object obj) throws MNVException;
 
-	List<?> executeQuery(String laVraiRequette) throws MNVException;
+	List<?> executeQuery(Object laVraiRequette, String target) throws MNVException;
 
 }
