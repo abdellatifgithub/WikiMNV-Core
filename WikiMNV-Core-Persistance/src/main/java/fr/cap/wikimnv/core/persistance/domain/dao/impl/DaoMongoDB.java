@@ -35,7 +35,7 @@ public class DaoMongoDB implements IDAOGenric {
 	private DB database;
 	private MongoClient mongo;
 	//Map regroupant ttes les collections
-	private Map<String,JacksonDBCollection> declaredCollections; 
+	private Map<String, JacksonDBCollection> declaredCollections; 
 
 	private SpringPropertiesUtil placeholderConfigMM;
 
