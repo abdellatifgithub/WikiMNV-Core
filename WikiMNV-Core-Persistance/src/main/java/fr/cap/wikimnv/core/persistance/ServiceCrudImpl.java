@@ -72,7 +72,7 @@ public class ServiceCrudImpl implements IServiceCRUD {
 			// un ajout à la vrairequete
 			
 		}
-		return dao.executeQuery(vraieRequete, query.toString());
+		return dao.executeQuery(vraieRequete, query.toString().toLowerCase().split("_")[0].concat("s"));
 	}
 	
 	
@@ -82,10 +82,9 @@ public class ServiceCrudImpl implements IServiceCRUD {
 		return dao.get(obj, cls);
 	}
 	@Override
-	public Object supprimer(Object obj, Class cls) throws MNVException {
+	public void supprimer(Object obj, Class cls) throws MNVException {
 		
 		dao.delete(obj, cls);
-		return true;
 	}
 
 	

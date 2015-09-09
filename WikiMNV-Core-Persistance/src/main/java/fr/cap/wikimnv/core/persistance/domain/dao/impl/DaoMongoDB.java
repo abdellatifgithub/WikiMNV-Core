@@ -143,7 +143,7 @@ public class DaoMongoDB implements IDAOGenric {
 	public List<?> executeQuery(Object laVraiRequette, String target)throws MNVException {
 		
 		List list = new ArrayList();
-		DBCursor cursor =  declaredCollections.get(target.concat("s")).find(Query.class.cast(laVraiRequette));
+		DBCursor cursor =  declaredCollections.get(target).find(Query.class.cast(laVraiRequette));
 		for (Object o : cursor)
 		{
 			list.add(o);

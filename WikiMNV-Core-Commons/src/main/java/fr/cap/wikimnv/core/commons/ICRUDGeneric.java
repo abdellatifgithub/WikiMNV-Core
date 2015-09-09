@@ -9,7 +9,7 @@ public interface ICRUDGeneric  {
 	
 	Set<?> lister(TypeStructure type) throws MNVException ;
 	Object lire(Object id, Class cls) throws MNVException;
-	Object supprimer(Object id, Class cls) throws MNVException;
+	void supprimer(Object id, Class cls) throws MNVException;
 	Object sauver(Object obj) throws MNVException ;
 	
 }
