@@ -53,7 +53,7 @@ public class DaoMongoDB implements IDAOGenric {
 		
 		this.placeholderConfigMM = placeholderConfigMM;
 		String ip = placeholderConfigMM.getProperty("wikimnv.dao.host.ip");
-		int port = Integer.parseInt(placeholderConfigMM.getProperty("wikimnv.dao.host.ip"));
+		int port = Integer.parseInt(placeholderConfigMM.getProperty("wikimnv.dao.host.port"));
 		String bdd = placeholderConfigMM.getProperty("wikimnv.dao.bdd");
 		
 		//mongo = new MongoClient();
