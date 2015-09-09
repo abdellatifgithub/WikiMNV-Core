@@ -17,7 +17,7 @@
 	
 
 	<bean id="dao"  class="${wikimnv.dao.implementation}">	
-		<property name="placeholderConfigMM" ref="placeholderConfigMM"/>
+		<constructor-arg ref="placeholderConfigMM"/>
 	</bean>
 	
 		

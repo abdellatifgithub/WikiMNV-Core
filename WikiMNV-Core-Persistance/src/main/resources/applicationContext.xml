@@ -29,7 +29,7 @@
 	
 	
 	
-	<bean id="placeholderConfigMM" class="SpringPropertiesUtil">
+	<bean id="placeholderConfigMM" class="fr.cap.wikimnv.core.persistance.SpringPropertiesUtil">
 	    <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
 	    <property name="locations" value="classpath:wikimnv.properties"/>
 	</bean>
