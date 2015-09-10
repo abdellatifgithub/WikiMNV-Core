@@ -1,6 +1,7 @@
 package fr.cap.wikimnv.service.impl;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import fr.cap.wikimnv.core.commons.exception.MNVException;
@@ -8,6 +9,7 @@ import fr.cap.wikimnv.core.persistance.MNVException_Exception;
 import fr.cap.wikimnv.core.persistance.cli.PersistanceCli;
 import fr.cap.wikimnv.core.pojo.TypeStructure;
 import fr.cap.wikimnv.core.pojo.User;
+import fr.cap.wikimnv.ldap.LookupLDAP;
 import fr.cap.wikimnv.service.IServiceUser;
 
 
@@ -74,6 +76,17 @@ public class ServiceUserImpl implements IServiceUser {
 	public void supprimer(Object arg0, Class arg1) throws MNVException {
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public User lookup(String filter) throws MNVException {
+		LookupLDAP l = new LookupLDAP();
+		try {
+			return (User) l.find(filter, User.class);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 

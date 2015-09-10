@@ -1,8 +1,13 @@
 package fr.cap.wikimnv.core.pojo;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.mongojack.Id;
 import org.mongojack.ObjectId;
-
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class User {
 	
 	public boolean bannit;

@@ -13,8 +13,10 @@ public class LookupLDAPTest {
 	@Test
 	public void testFind() throws Exception {
 		LookupLDAP ldap = new LookupLDAP();
-		User u = (User)ldap.find("dieu", User.class);
+		User u = (User)ldap.find("thilal", User.class);
 		System.out.println(u.getOu());
+		System.out.println(u.getDescription());
+
 	}
 
 }

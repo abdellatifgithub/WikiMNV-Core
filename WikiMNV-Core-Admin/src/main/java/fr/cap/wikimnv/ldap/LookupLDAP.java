@@ -13,6 +13,7 @@ public class LookupLDAP {
 
 
 	@SuppressWarnings("unchecked")
+	
 	public Object find(String uid, Class cls) throws Exception {
 		Object object = cls.newInstance();
 		Hashtable<String, String> env = new Hashtable<String, String>();
