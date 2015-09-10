@@ -5,89 +5,72 @@ import org.mongojack.ObjectId;
 
 public class User {
 	
-	private String userName;
-	private String userPassword;
-	private String businessCategory;
-	private String telephoneNumber;
-	private String internationaliSDNNumber;
-	private String street;
-	private String postOfficeBox;
-	private String postalCode;
-	private String postalAddress;	
 	public boolean bannit;
 	
-	public String getUserName() {
-		return userName;
+	private String cn;
+	private String description;
+	private String givenName;
+	private String mail;
+	private String ou;
+	private String sn;
+	private String uid;	
+	
+	
+	public String getCn() {
+		return cn;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setCn(String cn) {
+		this.cn = cn;
 	}
 
-	public String getUserPassword() {
-		return userPassword;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public String getBusinessCategory() {
-		return businessCategory;
+	public String getGivenName() {
+		return givenName;
 	}
 
-	public void setBusinessCategory(String businessCategory) {
-		this.businessCategory = businessCategory;
+	public void setGivenName(String givenName) {
+		this.givenName = givenName;
 	}
 
-	public String getTelephoneNumber() {
-		return telephoneNumber;
+	public String getMail() {
+		return mail;
 	}
 
-	public void setTelephoneNumber(String telephoneNumber) {
-		this.telephoneNumber = telephoneNumber;
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 
-	public String getInternationaliSDNNumber() {
-		return internationaliSDNNumber;
+	public String getOu() {
+		return ou;
 	}
 
-	public void setInternationaliSDNNumber(String internationaliSDNNumber) {
-		this.internationaliSDNNumber = internationaliSDNNumber;
+	public void setOu(String ou) {
+		this.ou = ou;
 	}
 
-	public String getStreet() {
-		return street;
+	public String getSn() {
+		return sn;
 	}
 
-	public void setStreet(String street) {
-		this.street = street;
+	public void setSn(String sn) {
+		this.sn = sn;
 	}
 
-	public String getPostOfficeBox() {
-		return postOfficeBox;
+	public String getUid() {
+		return uid;
 	}
 
-	public void setPostOfficeBox(String postOfficeBox) {
-		this.postOfficeBox = postOfficeBox;
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
-
-	public String getPostalCode() {
-		return postalCode;
-	}
-
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
-	}
-
-	public String getPostalAddress() {
-		return postalAddress;
-	}
-
-	public void setPostalAddress(String postalAddress) {
-		this.postalAddress = postalAddress;
-	}
-
 	
 	public void setBannit(boolean b) {
 		this.bannit = b;		
