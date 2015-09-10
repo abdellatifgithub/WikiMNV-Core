@@ -2,6 +2,7 @@ package fr.cap.wikimnv.ldap;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Hashtable;
+import java.util.concurrent.ExecutionException;
 
 import javax.naming.Context;
 import javax.naming.NamingEnumeration;
@@ -52,9 +53,13 @@ public class LookupLDAP {
 					//System.out.println(ne.next());
 					String key = ne.next();
 					String value = sr.getAttributes().get(key).get().toString();
-					System.out.println(key + " "+ value);
+					//System.out.println(key + " "+ value);
 					//User.class.getMethod("set".concat(key.substring(0, 1).toUpperCase()).concat(key.substring(1)), String.class).invoke(user, value);
-					cls.getMethod("set".concat(key.substring(0, 1).toUpperCase()).concat(key.substring(1)), String.class).invoke(cls.cast(object), value);
+					//on test si la clé est différente de objectClass
+					//si c'est le cas on insert pas (on a pas cet attr dans nos pojos)
+					if(!key.equals("objectClass")){
+						cls.getMethod("set".concat(key.substring(0, 1).toUpperCase()).concat(key.substring(1)), String.class).invoke(cls.cast(object), value);
+					}
 				}
 					
 				
